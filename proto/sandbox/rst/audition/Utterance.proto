@@ -1,0 +1,44 @@
+package rst.audition;
+
+import "rst/audition/PhonemeCollection.proto";
+import "rst/audition/SoundChunk.proto";
+
+option java_outer_classname = "UtteranceType";
+
+/**
+ * Objects of this represent a single utterances of speech.
+ *
+ * The data describes a single utterance in three different forms:
+ *
+ * * @ref .phonemes describes the utterance as a list of phone symbols
+ *   and durations (useful e.g. for lip animation).
+ *
+ * * @ref .audio is a @ref SoundChunk that can be played back on audio
+ *   devices containing the realization (e.g. by a TTS system)
+ *   of the included phoneme list
+ *
+ * * @ref .description is a textual description of the utterance for
+ *   debugging purposes.
+ *
+ * @author Simon Schulz <sschulz@techfak.uni-bielefeld.de>
+ */
+message Utterance {
+
+    /**
+     * A collection of phonemes. Will be played back in the same
+     * ordering as given by @ref .Phoneme
+     */
+    required PhonemeCollection phonemes = 1;
+
+    /**
+     * A chunk of audio data that can be played back containing the
+     * realization (e.g. by a TTS system) of the included phoneme list
+     */
+    required SoundChunk audio = 2;
+
+    /**
+     * Textual representation of the utterance.
+     */
+    required string textual_representation = 3;
+
+}
