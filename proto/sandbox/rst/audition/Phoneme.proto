@@ -1,0 +1,30 @@
+package rst.audition;
+
+option java_outer_classname = "PhonemeType";
+
+/**
+ * Objects of this represent a single phoneme-duration pair.
+ *
+ * A list of elements of this type can be used to describe words or
+ * whole sentences of speech.
+ *
+ * @author Simon Schulz <sschulz@techfak.uni-bielefeld.de>
+ */
+message Phoneme {
+
+    /**
+     * A single phone symbol (such as aI, E, C, R, _, ...).
+     *
+     * e.g. see https://en.wikipedia.org/wiki/Phoneme
+     *      or http://www.phon.ucl.ac.uk/home/sampa/german.htm (german)
+     *      examples
+     */
+    required string symbol = 1;
+
+    /**
+     * The duration of this symbol.
+     */
+    // @unit(millisecond)
+    required uint32 duration = 2;
+
+}
