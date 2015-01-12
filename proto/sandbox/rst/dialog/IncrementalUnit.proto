@@ -1,0 +1,72 @@
+package rst.dialog;
+
+option java_outer_classname = "IncrementalUnitType";
+
+import "rst/timing/Interval.proto";
+
+/**
+ * A description of the basic information of an incremental unit (IU) of
+ * the IU-model of incremental dialogue processing.
+ *
+ * @see http://wwwhomes.uni-bielefeld.de/dschlangen/inpro/abstractModel.html
+ *      "A General, Abstract Model of Incremental Dialogue Processing"
+ *
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message IncrementalUnit {
+
+    /**
+     * The incremental unit can be in different states.
+     */
+    enum EditType {
+
+        /**
+         * Indicates a new incremental unit.
+         */
+        ADD = 0;
+
+        /**
+         * Replaces the last incremental unit.
+         */
+        UPDATED = 1;
+
+        /**
+         * Revokes a previously added unit.
+         */
+        REVOKE = 2;
+
+        /**
+         * The incremental unit has been finally committed and will not
+         * be changed any more.
+         */
+        COMMIT = 3;
+
+    }
+
+    /**
+     * Start and end time of the incremental unit.
+     */
+    optional timing.Interval timestamps = 2;
+
+    /**
+     * A unique id for the incremental unit.
+     */
+    required bytes id = 3;
+
+    /**
+     * Optional id list of IU which have a same-level link.
+     * Same-level links (sll) connect IUs, which are produced by the
+     * same module and reflect their temporal order.
+     */
+    repeated bytes sll_id = 4;
+
+    /**
+     * Optional id list of IU which have a grounded-in link.
+     * Grounded-in links (gil) represent on which IUs they depend, thus
+     * representing the possibility to build a hierarchical structure.
+     * Entries are sorted by time and nesting level of the created
+     * graph.
+     */
+    repeated bytes gil_id = 5;
+
+}

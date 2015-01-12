@@ -1,0 +1,95 @@
+package rst.dialog;
+
+option java_outer_classname = "DialogActType";
+
+import "rst/dialog/IncrementalUnit.proto";
+import "rst/dialog/SpeechHypotheses.proto";
+
+/**
+ * A description of a dialog act as a specialization of an incremental
+ * unit consisting an xml speech hypothesis as payload.
+ *
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message DialogAct {
+
+    /**
+     * Possible kinds of dialog act types.
+     */
+    enum Type {
+
+        /**
+         * Conversation opening.
+         */
+        GREET = 0;
+
+        /**
+         * Affirmative answer.
+         */
+        ACCEPT = 1;
+
+        /**
+         * Negative answer.
+         */
+        REJECT = 2;
+
+        /**
+         * Confirmation.
+         */
+        CONFIRM = 3;
+
+        /**
+         * Negation.
+         */
+        NEGATE = 4;
+
+        /**
+         * Speaker wants an information from addressee.
+         */
+        INFO_REQUEST = 5;
+
+        /**
+         * Speaker offers to perform an action.
+         */
+        ACTION_REQUEST = 6;
+
+        /**
+         * A statement.
+         */
+        STATEMENT = 7;
+
+        /**
+         * An answer (not a yes/no answer).
+         */
+        ANSWER = 8;
+
+        /**
+         * Conversation closing.
+         */
+        GOODBYE = 9;
+
+        /**
+         * The current dialog act doesn't match to any of the previous
+         * types.
+         */
+        OTHER = 100;
+
+    }
+
+
+    /**
+     * The type of the current dialog act.
+     */
+    required Type type = 1;
+
+    /**
+     * The basic information of the dialog act IU.
+     */
+    required IncrementalUnit incremental_unit = 2;
+
+    /**
+     * The underlying speech recognition result causing this dialog act.
+     */
+    optional SpeechHypotheses speech_hypotheses = 3;
+
+}

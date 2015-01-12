@@ -1,0 +1,41 @@
+package rst.dialog;
+
+option java_outer_classname = "DialogManagerCommandType";
+
+/**
+ * A description of a command for a dialog manager.
+ *
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message DialogManagerCommand {
+
+    /**
+     * Possible kinds of commands.
+     */
+    enum Command {
+
+        /**
+         * Reset the whole interaction.
+         */
+        RESET_INTERACTION = 0;
+
+        /*
+         * Reset a single interaction pattern. Requires the
+         * @ref .rst.dialog.DialogManagerCommand.pattern_name name to be
+         * set.
+         */
+        RESET_PATTERN = 1;
+
+    }
+
+    /**
+     * The chosen command for the dialog manager
+     */
+    required Command command = 1;
+
+    /**
+     * An interaction pattern referenced for the current command.
+     */
+    optional string pattern_name = 2;
+
+}
