@@ -1,0 +1,63 @@
+package rst.devices.generic;
+
+option java_outer_classname = "LaserScannerConfigType";
+
+import "rst/geometry/Pose.proto";
+
+/**
+ * Defines the configuration of a planar laser scanner like devices
+ * inside an environment.
+ *
+ * The rays of the scanning device originate from the origin of a single
+ * coordinate system. The rays lie in the X-Y plane defined by the
+ * coordinate system and value readings are produced starting at @ref
+ * .angle_start to @ref .angle_end. These angles are specified in
+ * counter-clockwise fashion around the Z-axis and an angle of 0 points
+ * in the direction of the Y-axis. This means that for a symmetric scan
+ * to the "front" of the scanner (ie. pointinng in the direction of the
+ * y-axis) @ref .angle_start has a negative value and @ref .angle_end is
+ * @ref .angle_start * -1.
+ *
+ * @author "Johannes Wienke" <jwienke@techfak.uni-bielefeld.de>
+ */
+message LaserScannerConfig {
+
+    /**
+     * The location of the scanners intrinsic coordinate system (as
+     * described in the type comment).
+     */
+    optional geometry.Pose origin = 1;
+
+    /**
+     * The angle where the scan starts (so the first ray reading is produced).
+     * The angle is specified in counter-clockwise fashion around the Z-axis
+     * and an angle of 0 points in the direction of the Y-axis of the scanner's
+     * intrinsic coordinate system.
+     */
+    // @unit(radian)
+    required float angle_start = 2;
+
+    /**
+     * The angle where the scan ends (so the last ray reading is produced).
+     * The angle is specified in counter-clockwise fashion around the Z-axis
+     * and an angle of 0 points in the direction of the Y-axis of the scanner's
+     * intrinsic coordinate system.
+     */
+    // @unit(radian)
+    required float angle_end = 3;
+
+    /**
+     * Minimally perceivable distance of the device.
+     */
+    // @unit(meter)
+    // @constraint(.value > 0)
+    optional float range_min = 4;
+
+    /**
+     * Maximally perceivable distance of the device
+     */
+    // @unit(meter)
+    // @constraint(.value > 0)
+    optional float range_max = 5;
+
+}
