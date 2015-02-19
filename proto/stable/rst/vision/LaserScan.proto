@@ -11,7 +11,13 @@ option java_outer_classname = "LaserScanType";
 message LaserScan {
 
     /**
-     * A set of values coming from the laserscanning device.
+     * The set of range readings from the scanning device assuming
+     * equidistant spacing between the individual rays as defined by
+     * @ref .scan_angle / (len(@ref .scan_values) - 1). In case a value
+     * for a ray cannot be determined (e.g. because the actual point in
+     * the world is outside of the available range of the scanner or
+     * cannot be determined reliably), a value < 0 indicates this
+     * condition.
      */
     // @unit(meter)
     repeated float scan_values = 1;
