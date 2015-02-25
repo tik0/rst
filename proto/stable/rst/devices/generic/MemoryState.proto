@@ -19,10 +19,34 @@ message MemoryState {
     optional float total = 2;
 
     /**
-     * The currently used amount of memory.
+     * The currently used amount of memory. This includes everything including
+     * cached memory etc. Stated the other way around, @ref .total - @ref .free
+     * must result in the amount of memory currently being completely unused.
      */
     // @unit(byte)
     // @constraint(0<=value<=.total)
     optional float used = 3;
+
+    /**
+     * The amount of working memory that can be used by processes without
+     * swapping, either because it is directly free or it can be reclaimed.
+     */
+    // @unit(byte)
+    // @constraint(0<=value<=.total)
+    optional uint64 usable = 4;
+
+    /**
+     * The amount of swap space available.
+     */
+    // @unit(byte)
+    // @constraint(value>=0)
+    optional uint64 swap_total = 5;
+
+    /**
+     * The amount of swap space currently being used.
+     */
+    // @unit(byte)
+    // @constraint(0<=value<=.swap_total)
+    optional uint64 swap_used = 6;
 
 }
