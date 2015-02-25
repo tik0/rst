@@ -33,4 +33,9 @@ message HostInformation {
      */
     optional CpuState cpu_state = 3;
 
+    /**
+     * The number of processes currently being executed on the system.
+     */
+    optional uint64 process_num = 4;
+
 }
