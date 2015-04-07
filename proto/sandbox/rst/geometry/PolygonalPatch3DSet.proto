@@ -1,0 +1,19 @@
+package rst.geometry;
+
+option java_outer_classname = "PolygonalPatch3DSetType";
+
+import "rst/geometry/PolygonalPatch3D.proto";
+
+/**
+ * A set of @ref .PolygonalPatch3D objects.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message PolygonalPatch3DSet {
+
+    /**
+     * Empty collection is allowed. Order is not important.
+     */
+    repeated PolygonalPatch3D patches = 1;
+
+}
