@@ -1,0 +1,49 @@
+package rst.geometry;
+
+option java_outer_classname = "PolygonalPatch3DType";
+
+import "rst/geometry/Pose.proto";
+import "rst/math/Vec2DFloat.proto";
+
+/**
+ * A two-dimensional patch in 3D space bounded by a polygon.
+ *
+ * In contrast to planes (with infinite extend) this kind of bounded
+ * patch needs a local coordinate system in order to define the
+ * borders of the patch. Thus, instead of the widely used point-normal
+ * representation, we use a complete 6D pose for describing the
+ * location of the plane. We define that the X and Y axes of the
+ * resulting coordinate system span the plane. Accordingly, the Z axis
+ * corresponds to the normal on the plane. The patch border is a 2D
+ * polygon defined by a sequence of @ref .math.Vec2DFloat objects.
+ *
+ * In order to construct a 3D representation of the patch, the 2D
+ * coordinates of the polygon must be extended by a Z = 0 coordinate
+ * and transformed using the 6D pose. The polygon must not be self
+ * intersecting.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message PolygonalPatch3D {
+
+    /**
+     * The 6D transformation specifying the base (X and Y axes span
+     * the plane in which the patch and its bounding polygon reside).
+     */
+    required Pose base = 1;
+
+    /**
+     * The 2D polygon defining the border of the patch.
+     *
+     * Winding rule: ccw w.r.t. normal (Z axis) (right-hand rule)
+     *
+     * Linear segments arise by connecting consecutive entries of the
+     * array (including an additional implicit segment connecting the
+     * last entry to the first entry).
+     *
+     * Order of entries is significant.
+     */
+    // @constraint(len(value) >= 3)
+    repeated math.Vec2DFloat border = 2;
+
+}
