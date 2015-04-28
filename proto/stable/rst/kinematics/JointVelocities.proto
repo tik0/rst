@@ -12,7 +12,7 @@ message JointVelocities {
     /**
      * Joint velocities
      */
-    // @unit(rad-per-second)
+    // @unit(rad/sec)
     repeated float velocities = 1 [packed=true];
 
 }
