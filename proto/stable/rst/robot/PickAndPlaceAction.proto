@@ -1,24 +1,25 @@
-package rst.euroc;
+package rst.robot;
 
 import "rst/geometry/Pose.proto";
 
 option java_outer_classname = "PickAndPlaceActionType";
 
 /**
- * PickAndPlaceAction data consisting of two Poses, a pick-Pose and a place-Pose,
- * for picking and placing objects. Both poses are expressed world coordinates.
+ * PickAndPlaceAction data consisting of two Poses, a pick-Pose and a
+ * place-Pose, for picking and placing objects. Both poses are expressed
+ * in world coordinates.
  *
  * @author Christian Emmerich <cemmeric@techfak.uni-bielefeld.de>
  */
 message PickAndPlaceAction {
 
     /**
-     * A rst.geometry.Pose representing a grip-Pose to grip an object
+     * A rst.geometry.Pose representing a grip-Pose to grip an object.
      */
     required geometry.Pose pickPose = 1;
 
     /**
-     * A rst.geometry.Pose where to place the object
+     * A rst.geometry.Pose where to place the object.
      */
     required geometry.Pose placePose = 2;
 
