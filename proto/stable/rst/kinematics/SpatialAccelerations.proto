@@ -6,7 +6,7 @@ import "rst/kinematics/AngularAccelerations.proto";
 option java_outer_classname = "SpatialAccelerationsType";
 
 /**
- * Twist representation of Cartesian velocities.
+ * Twist-like representation of Cartesian accelerations.
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
