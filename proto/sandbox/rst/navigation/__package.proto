@@ -1,4 +1,0 @@
-/**
- * Contains data types related to navigation tasks in robotics
- */
-package rst.navigation;
