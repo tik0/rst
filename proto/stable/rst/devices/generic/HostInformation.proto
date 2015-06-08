@@ -6,12 +6,8 @@ import "rst/devices/generic/CpuState.proto";
 option java_outer_classname = "HostInformationType";
 
 /**
- * Low-level information of the CPU utilization for a single system with
- * potentially multiple cores.
- *
- * This message is currently designed closely along the information available
- * in the Linux proc filesystem. So it is probably only directly useful for
- * Linux systems.
+ * Combines monitoring information about a single processing node into a single
+ * message.
  *
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
