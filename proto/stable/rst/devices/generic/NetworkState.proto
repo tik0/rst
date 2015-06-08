@@ -1,0 +1,240 @@
+package rst.devices.generic;
+
+option java_outer_classname = "NetworkStateType";
+
+/**
+ * Information about the available persistent storage devices in a processing
+ * node and their usage statistics.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message NetworkState {
+
+    /**
+     * Represents statistics for a single Network Interface Controller (NIC).
+     *
+     * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+     */
+    message NetworkInterfaceController {
+
+        /**
+         * Name of the NIC as represented by the OS.
+         */
+        required bytes name = 1;
+
+        /**
+         * Number of bytes received by the NIC so far. Might wrap in case of an
+         * overflow.
+         */
+        // @unit(byte)
+        optional uint64 bytes_received = 10;
+
+        /**
+         * Number of bytes sent by the NIC so far. Might wrap in case of an
+         * overflow.
+         */
+        // @unit(byte)
+        optional uint64 bytes_sent = 11;
+
+        /**
+         * Number of packets received by the NIC. Might wrap in case of an
+         * overflow.
+         */
+        optional uint64 packets_received = 12;
+
+        /**
+         * Number of packets sent by the NIC. Might wrap in case of an
+         * overflow.
+         */
+        optional uint64 packets_sent = 13;
+
+        /**
+         * Number of errors while receiving packets since the start of the
+         * device. Might wrap in case of an overflow.
+         */
+        optional uint64 receive_errors = 14;
+
+        /**
+         * Number of errors while sending packets since the start of the
+         * device. Might wrap in case of an overflow.
+         */
+        optional uint64 send_errors = 15;
+
+        /**
+         * Number of dropped packets that should have been received since the
+         * start of the device. Might wrap in case of an overflow.
+         */
+        optional uint64 receive_drops = 16;
+
+        /**
+         * Number of dropped packets that should have been sent since the start
+         * of the device. Might wrap in case of an overflow.
+         */
+        optional uint64 send_drops = 17;
+
+    }
+
+    /**
+     * List of statistic messages for all NICs of the processing node. Order is
+     * not important.
+     */
+    repeated NetworkInterfaceController nics = 1;
+
+    /**
+     * Number of network connections for a combination of address family and
+     * protocol and separated by the different connection states. In case a
+     * combination of protocol and address family does not allow to distinguish
+     * different connection states, all connections will end up in the @ref
+     * .num_none field.
+     *
+     * The list of connection states has been taken from python psutil.
+     *
+     * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+     */
+    message NetworkConnections {
+
+        /**
+         * Available OSI transport layer protocols for network connections.
+         */
+        enum Protocol {
+
+            /**
+             * The Transmission Control Protocol (TCP).
+             */
+            PROTOCOL_TCP = 1;
+
+            /**
+             * The User Datagram Protocol (UDP).
+             */
+            PROTOCOL_UDP = 2;
+
+            /**
+             * Any other protocol. Might also be used in case TCP and UDP
+             * cannot be distinguished.
+             */
+            PROTOCOL_OTHER = 100;
+        }
+
+        /**
+         * Possible network address families used to establish a network
+         * connection.
+         */
+        enum AddressFamily {
+
+            /**
+             * Internet Protocol version 4 (IPv4).
+             */
+            FAMILY_IPV4 = 1;
+
+            /**
+             * Internet Protocol version 6 (IPv6).
+             */
+            FAMILY_IPV6 = 2;
+
+            /**
+             * Unix domain sockets.
+             */
+            FAMILY_UNIX = 3;
+
+            /**
+             * Any other address family.
+             */
+            FAMILY_OTHER = 100;
+        }
+
+        /**
+         * Protocol of the network connection counters expressed in this
+         * message.
+         */
+        required Protocol protocol = 1;
+
+        /**
+         * Address family of the network connection counters expressed in this
+         * message.
+         */
+        required AddressFamily family = 2;
+
+        /**
+         * Number of connections in the ESTABLISHED state.
+         */
+        optional uint32 num_established = 10;
+
+        /**
+         * Number of connections in the SYN_SENT state.
+         */
+        optional uint32 num_syn_sent = 11;
+
+        /**
+         * Number of connections in the SYN_RECV state.
+         */
+        optional uint32 num_syn_recv = 12;
+
+        /**
+         * Number of connections in the FIN_WAIT1 state.
+         */
+        optional uint32 num_fin_wait1 = 13;
+
+        /**
+         * Number of connections in the FIN_WAIT2 state.
+         */
+        optional uint32 num_fin_wait2 = 14;
+
+        /**
+         * Number of connections in the TIME_WAIT state.
+         */
+        optional uint32 num_time_wait = 15;
+
+        /**
+         * Number of connections in the CLOSE state.
+         */
+        optional uint32 num_close = 16;
+
+        /**
+         * Number of connections in the CLOSE_WAIT state.
+         */
+        optional uint32 num_close_wait = 17;
+
+        /**
+         * Number of connections in the LAST_ACK state.
+         */
+        optional uint32 num_last_ack = 18;
+
+        /**
+         * Number of connections in the LISTEN state.
+         */
+        optional uint32 num_listen = 19;
+
+        /**
+         * Number of connections in the CLOSING state.
+         */
+        optional uint32 num_closing = 20;
+
+        /**
+         * Number of connections in the DELETE_TCB state (windows).
+         */
+        optional uint32 num_delete_tcb = 21;
+
+        /**
+         * Number of connections in the IDLE state (solaris).
+         */
+        optional uint32 num_idle = 22;
+
+        /**
+         * Number of connections in the BOUND state (solaris).
+         */
+        optional uint32 num_bound = 23;
+
+        /**
+         * Number of connections in any other or unknown state.
+         */
+        optional uint32 num_none = 40;
+
+    }
+
+    /**
+     * Numbers of network connections indexed by the combined key (protocol,
+     * address family). Order is not important. Keys must be unique.
+     */
+    repeated NetworkConnections connections = 2;
+
+}
