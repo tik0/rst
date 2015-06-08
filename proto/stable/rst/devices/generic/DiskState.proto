@@ -1,0 +1,117 @@
+package rst.devices.generic;
+
+option java_outer_classname = "DiskStateType";
+
+/**
+ * Information about the available persistent storage devices in a processing
+ * node and their usage statistics.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message DiskState {
+
+    /**
+     * Representation of file system partition and related size information.
+     * Due to things like LVM, a partition may reside on multiple physical
+     * storage devices and device names might even be unrelated.
+     *
+     * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+     */
+    message Partition {
+
+        /**
+         * The path (Unix) or drive letter under which the partition is
+         * accessible in the node's file system.
+         */
+        required bytes mount_point = 1;
+
+        /**
+         * Name of the physical storage device on which this partition resides.
+         * Due to the reasons mentioned in the message comment, this name may
+         * or may not match one of the names given in the devices section.
+         */
+        optional bytes device = 2;
+
+        /**
+         * Total available space on the partition.
+         */
+        // @unit(byte)
+        optional uint64 space_total = 10;
+
+        /**
+         * Used space on the partition.
+         */
+        // @unit(byte)
+        optional uint64 space_used = 11;
+
+    }
+
+    /**
+     * The available partitions of the processing node. Order is not important.
+     */
+    repeated Partition partitions = 1;
+
+    /**
+     * Represents a physical storage device and statistics regarding read and
+     * write access for that device. The exact definition of what a storage
+     * device is, may be OS-specific due to the availability of the respective
+     * counters for the operating system. Therefore, the device can be
+     * unrelated to physical hard disks.
+     *
+     * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+     */
+    message Device {
+
+        /**
+         * Name of the device as represented by the OS.
+         */
+        required bytes name = 1;
+
+        /**
+         * Number of reads performed on this device so far. Might wrap in case
+         * of an overflow.
+         */
+        optional uint64 read_count = 10;
+
+        /**
+         * Number of writes performed on this device so far. Might wrap in case
+         * of an overflow.
+         */
+        optional uint64 write_count = 11;
+
+        /**
+         * Number of bytes read from the device so far. Might wrap in case of
+         * an overflow.
+         */
+        // @unit(byte)
+        optional uint64 read_bytes = 12;
+
+        /**
+         * Number of bytes written to the device so far. Might wrap in case of
+         * an overflow.
+         */
+        // @unit(byte)
+        optional uint64 write_bytes = 13;
+
+        /**
+         * Time spent reading from the device. Might wrap in case of an
+         * overflow.
+         */
+        // @unit(msec)
+        optional uint64 read_time = 14;
+
+        /**
+         * Time spent writing to the device. Might wrap in case of an overflow.
+         */
+        // @unit(msec)
+        optional uint64 write_time = 15;
+
+    }
+
+    /**
+     * Collection of statistics for physical storage devices. Order is not
+     * important.
+     */
+    repeated Device devices = 2;
+
+}

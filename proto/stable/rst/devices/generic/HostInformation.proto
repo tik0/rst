@@ -2,6 +2,7 @@ package rst.devices.generic;
 
 import "rst/devices/generic/MemoryState.proto";
 import "rst/devices/generic/CpuState.proto";
+import "rst/devices/generic/DiskState.proto";
 
 option java_outer_classname = "HostInformationType";
 
@@ -33,5 +34,10 @@ message HostInformation {
      * The number of processes currently being executed on the system.
      */
     optional uint64 process_num = 4;
+
+    /**
+     * Information about storage devices.
+     */
+    optional DiskState disk_state = 5;
 
 }
