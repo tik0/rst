@@ -4,6 +4,7 @@ import "rst/devices/generic/MemoryState.proto";
 import "rst/devices/generic/CpuState.proto";
 import "rst/devices/generic/DiskState.proto";
 import "rst/devices/generic/NetworkState.proto";
+import "rst/devices/generic/UserState.proto";
 
 option java_outer_classname = "HostInformationType";
 
@@ -45,5 +46,10 @@ message HostInformation {
      * Information about network devices and connections.
      */
     optional NetworkState network_state = 6;
+
+    /**
+     * Information about logged-in users.
+     */
+    optional UserState user_state = 7;
 
 }

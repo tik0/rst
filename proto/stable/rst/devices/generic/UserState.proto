@@ -1,0 +1,29 @@
+package rst.devices.generic;
+
+option java_outer_classname = "UserStateType";
+
+/**
+ * Information about the currently logged-in users on a processing node.
+ *
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message UserState {
+
+    /**
+     * Number of currently logged-in users distinguished by their user name.
+     */
+    optional uint32 logged_in_users = 1;
+
+    /**
+     * Number of sessions associated to logged-in users. On Linux this relates
+     * to terminals used by a user.
+     */
+    optional uint32 login_sessions = 2;
+
+    /**
+     * Number of distinct hosts from which users are logged in on the described
+     * processing node.
+     */
+    optional uint32 login_hosts = 3;
+
+}
