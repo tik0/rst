@@ -2,7 +2,7 @@ FIND_PACKAGE(PythonInterp)
 
 # also check that setuptools is available
 IF(PYTHONINTERP_FOUND AND ((NOT PYTHON_VERSION_MAJOR) OR (PYTHON_VERSION_MAJOR EQUAL 2)) AND NOT SETUPTOOLS_FOUND)
-    MESSAGE(STATUS "Checking wether setuptools for python is available")
+    MESSAGE(STATUS "Checking whether setuptools for python is available")
     EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "import setuptools" RESULT_VARIABLE SETUPTOOLS_RESULT)
     IF(SETUPTOOLS_RESULT EQUAL 0)
         SET(SETUPTOOLS_FOUND TRUE CACHE BOOL "Indicates wether python can run setuptools" FORCE)
