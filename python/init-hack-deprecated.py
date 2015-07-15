@@ -7,6 +7,17 @@ import rstdeprecated
 import logging
 
 logger = logging.getLogger("rstdeprecated")
+# prevent logging warnings about missing handlers as per:
+# https://docs.python.org/2.6/library/logging.html#configuring-logging-for-a-library
+# do so before importing anything from RSB itself, which might already log
+# stuff
+class _NullHandler(logging.Handler):
+    """
+    Null logging handler to prevent warning messages
+    """
+    def emit(self, record):
+        pass
+logger.addHandler(_NullHandler())
 
 def addDeprecatedToRST():
     def importIt(designator, error = True):
