@@ -1,0 +1,18 @@
+package rst.dynamics;
+
+option java_outer_classname = "MotorCurrentsType";
+
+/**
+ * Represents measurements of motor currents for a robot's joints.
+ *
+ * @author Michael Wojtynek <mwojtynek@cor-lab.uni-bielefeld.de>
+ */
+message MotorCurrents {
+
+    /**
+     * motor currents of the robot's drives
+     */
+    // @unit(ampere)
+    repeated float currents = 1 [packed=true];
+
+}
