@@ -1,0 +1,26 @@
+package rst.tracking;
+
+import "rst/tracking/TrackingInfo.proto";
+import "rst/classification/ClassifiedRegion3D.proto";
+
+option java_outer_classname = "TrackedClassifiedRegion3DType";
+
+/**
+ * A region in 3D space with tracking information and classification results.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message TrackedClassifiedRegion3D {
+
+    /**
+     * Tracking information such as identity of the subject being tracked.
+     */
+    required TrackingInfo info = 1;
+
+    /**
+     * Region and class of the tracked subject identified by @ref .info in
+     * three-dimensional space.
+     */
+    required classification.ClassifiedRegion3D region = 2;
+
+}
