@@ -1,0 +1,28 @@
+package rst.tracking;
+
+import "rst/tracking/TrackedClassifiedRegion3D.proto";
+
+option java_outer_classname = "TrackedClassifiedRegions3DType";
+
+/**
+ * A collection of @ref .TrackedClassifiedRegion3D objects.
+ *
+ * Collecting multiple @ref .TrackedClassifiedRegion3D objects in a
+ * single data structure is an easy way to express the fact that they
+ * have been recorded at the same point in time.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message TrackedClassifiedRegions3D {
+
+    /**
+     * Empty collections of tracked regions are allowed but should
+     * rarely be necessary.
+     *
+     * Order of regions is not significant since association of
+     * tracked regions to tracked subjects is done via @ref
+     * .region.info.
+     */
+    repeated TrackedClassifiedRegion3D region = 1;
+
+}
