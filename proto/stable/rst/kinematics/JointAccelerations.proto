@@ -1,0 +1,21 @@
+package rst.kinematics;
+
+option java_outer_classname = "JointAccelerationsType";
+
+/**
+ * A sequence of joint accelerations of multiple joints.
+ *
+ * @author Niels Dehio <ndehio@cor-lab.uni-bielefeld.de>
+ */
+message JointAccelerations {
+
+    /**
+     * Joint accelerations.
+     *
+     * Order is important and represents the described underlying
+     * physical object.
+     */
+    // @unit(rad/sec^2)
+    repeated float accelerations = 1 [packed=true];
+
+}
