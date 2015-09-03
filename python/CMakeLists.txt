@@ -158,11 +158,6 @@ IF(PYTHONINTERP_FOUND AND
     INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${INSTALL_PREFIX}.pth"
             DESTINATION ${EGG_INSTALL_FOLDER})
 
-    # use site.py hack from setuptools to ensure that we have a working python
-    # site in the installation destination
-    # see https://code.cor-lab.org/issues/1623
-    #INSTALL(CODE "EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c \"print 'install to ${CMAKE_INSTALL_PREFIX}/${EGG_INSTALL_FOLDER}/site.py'; import pkg_resources; f = open('${CMAKE_INSTALL_PREFIX}/${EGG_INSTALL_FOLDER}/site.py', 'w'); f.write(pkg_resources.resource_string('setuptools', 'site-patch.py')); f.close()\")")
-
 ELSE()
     MESSAGE(STATUS "Python 2 not found or setuptools not available. Not installing python bindings.")
 ENDIF()
