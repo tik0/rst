@@ -1,0 +1,58 @@
+package rst.dialog;
+
+import "rst/timing/Interval.proto";
+
+option java_outer_classname = "SpeechHypothesisType";
+
+/**
+ * A hypothesis about a speech recognition result.
+ *
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ * @author Soeren Klett <sklett@techfak.uni-bielefeld.de>
+ */
+message SpeechHypothesis {
+
+    /**
+     * Speech recognition result for a single word.
+     */
+    message Word {
+
+        /**
+         * Speech recognition result for a single word.
+         */
+        required string word = 1;
+
+        /**
+         * Start and end time for this word.
+         *
+         * If specified, this must be within the bounds of
+         * @ref .rst.dialog.SpeechHypothesis.timestamp
+         */
+        optional timing.Interval timestamps = 2;
+
+    }
+
+    /**
+     * List of word speech recognition results.
+     */
+    repeated Word words = 1;
+
+    /**
+     * Confidence for this speech hypothesis.
+     */
+    // @constraint(0 <= value <= 1)
+    optional float confidence = 2;
+
+    /**
+     * Start and end time for this speech hypothesis. Since some speech
+     * recognizers may not provide detailed results for each word, this
+     * field may be used to indicate the time of the overall hypothesis.
+     */
+    optional timing.Interval timestamp = 3;
+
+    /**
+     * The grammar tree of this speech hypothesis.
+     */
+    optional string grammar_tree = 4;
+
+}

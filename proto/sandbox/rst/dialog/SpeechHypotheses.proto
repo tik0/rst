@@ -1,0 +1,37 @@
+package rst.dialog;
+
+import "rst/dialog/SpeechHypothesis.proto";
+
+option java_outer_classname = "SpeechHypothesesType";
+
+/**
+ * A set of potential speech hypotheses for a single utterance
+ * representing different interpretations.
+ *
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ * @author Soeren Klett <sklett@techfak.uni-bielefeld.de>
+ */
+message SpeechHypotheses {
+
+    /**
+     * The best speech recognition result.
+     */
+    required SpeechHypothesis best_result = 1;
+
+    /**
+     * A list of potential other interpretations of the speech signal
+     * ordered by confidence. The first entry represents the hypothesis
+     * with the highest confidence. The @ref .best_result is not
+     * included in this list.
+     */
+    repeated SpeechHypothesis further_results = 2;
+
+    /**
+     * Indicates whether the current result might be superseded with
+     * further results due to incremental processing or not. A value of
+     * true indicates that no further hypotheses for the represented
+     * speech utterance will be produced in the future.
+     */
+    required bool final = 3;
+
+}
