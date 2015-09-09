@@ -1,0 +1,27 @@
+package rst.tracking;
+
+import "rst/tracking/TrackedPolygonalPatch3D.proto";
+
+option java_outer_classname = "TrackedPolygonalPatches3DType";
+
+/**
+ * A collection of @ref .TrackedPolygonalPatch3D objects.
+ *
+ * Collecting multiple @ref .TrackedPolygonalPatch3D objects in a single
+ * data structure is an easy way to express the fact that they have been
+ * recorded at the same point in time.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message TrackedPolygonalPatches3D {
+
+    /**
+     * Empty collections of tracked patches are allowed but should
+     * rarely be necessary.
+     *
+     * Order of patches is not significant since association of
+     * tracked patches to tracked subjects is done via @ref .patch.info.
+     */
+    repeated TrackedPolygonalPatch3D patch = 1;
+
+}

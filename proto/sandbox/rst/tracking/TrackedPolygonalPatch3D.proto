@@ -1,0 +1,27 @@
+package rst.tracking;
+
+import "rst/tracking/TrackingInfo.proto";
+import "rst/geometry/PolygonalPatch3D.proto";
+
+option java_outer_classname = "TrackedPolygonalPatch3DType";
+
+/**
+ * A planar polygon in 3D space with tracking information.
+ *
+ * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
+ */
+message TrackedPolygonalPatch3D {
+
+    /**
+     * Tracking information such as identity of the subject being
+     * tracked.
+     */
+    required TrackingInfo info = 1;
+
+    /**
+     * Geometric properties of the tracked subject identified by
+     * @ref .info in three-dimensional space.
+     */
+    required geometry.PolygonalPatch3D patch = 2;
+
+}
