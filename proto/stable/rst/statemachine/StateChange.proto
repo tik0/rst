@@ -26,4 +26,9 @@ message StateChange {
      */
     optional string cause = 3;
 
+    /**
+     * A description of the state machine which changed its state.
+     */
+    optional string machine = 4;
+
 }
