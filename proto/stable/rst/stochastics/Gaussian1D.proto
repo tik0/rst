@@ -3,7 +3,7 @@ package rst.stochastics;
 option java_outer_classname = "Gaussian1DType";
 
 /**
- * TODO
+ * Describes a one-dimensional Gaussian distribution.
  *
  * @author Xavier Alameda-Pineda <xavier.alameda-pineda@inrialpes.fr>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
@@ -11,16 +11,14 @@ option java_outer_classname = "Gaussian1DType";
 message Gaussian1D {
 
     /**
-     * TODO
+     * Mean of the distribution.
      */
-    // @unit(number)
     required float mean = 1;
 
     /**
-     * TODO
+     * Variance of the distribution.
      */
     // @constraint(value >= 0)
-    // @unit(number)
     required float variance = 2;
 
 }

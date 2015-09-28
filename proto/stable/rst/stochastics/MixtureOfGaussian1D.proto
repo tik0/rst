@@ -5,37 +5,41 @@ import "rst/stochastics/Gaussian1D.proto";
 option java_outer_classname = "MixtureOfGaussian1DType";
 
 /**
- * TODO
+ * Weighted mixture of one-dimensional Gaussian distributions.
  *
  * @author Xavier Alameda-Pineda <xavier.alameda-pineda@inrialpes.fr>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @constraint(sum(.components.weight) = 1)
 message MixtureOfGaussian1D {
 
     /**
-     * TODO
+     * A mixture component distribution with its associated weight.
      */
     message GaussianComponent1D {
 
         /**
-         * TODO
+         * The Gaussian distribution associated with this component.
          */
         required Gaussian1D gaussian = 1;
 
         /**
-         * TODO
+         * Weight of this component.
          */
-        // @unit(TODO)
+        // @constraint(0 <= value <= 1)
         required float weight = 2;
 
         /**
-         * TODO
+         * Deprecated implementation detail - do not use.
          */
         required float probability_state = 3;
     }
 
     /**
-     * TODO
+     * Components of the mixture.
+     *
+     * An empty set of components is not allowed.
+     * The order of elements is not significant.
      */
     repeated GaussianComponent1D components = 1;
 
