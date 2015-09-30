@@ -13,16 +13,22 @@ IF(ANT_EXECUTABLE AND PROTOBUF_JAVA_LIBRARY)
     PROTOBUF_GENERATE(JAVA STABLE_PROTO_FILES
                       PROTOFILES ${STABLE_PROTOS}
                       PROTOROOT ${STABLE_ROOT}
+                      JAVA_FILENAME_SUFFIX "Type.java"
+                      DEPENDS "stable_protos"
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/stable")
     PROTOBUF_GENERATE(JAVA SANDBOX_PROTO_FILES
                       PROTOFILES ${SANDBOX_PROTOS}
                       PROTOROOT ${SANDBOX_ROOT}
                       INCLUDES ${STABLE_ROOT}
+                      JAVA_FILENAME_SUFFIX "Type.java"
+                      DEPENDS "sandbox_protos" "stable_protos"
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/sandbox")
     PROTOBUF_GENERATE(JAVA DEPRECATED_PROTO_FILES
                       PROTOFILES ${DEPRECATED_PROTOS}
                       PROTOROOT ${DEPRECATED_ROOT}
                       INCLUDES ${STABLE_ROOT} ${SANDBOX_ROOT}
+                      JAVA_FILENAME_SUFFIX "Type.java"
+                      DEPENDS "deprecated_protos" "stable_protos" "sandbox_protos"
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/deprecated")
 
     # Prepare safe variables and configure ant build files.

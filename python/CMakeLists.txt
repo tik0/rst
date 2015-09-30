@@ -52,17 +52,21 @@ FUNCTION(BUILD_PYTHON_DOMAIN)
 
     # generate the protocol
     SET(INCLUDE_ARG)
+    SET(UPSTREAM_DOMAIN_TARGETS)
     LIST(LENGTH USE_DOMAINS_UPPER HAS_USE_DOMAINS)
     IF(${HAS_USE_DOMAINS} GREATER 0)
         SET(INCLUDE_ARG "INCLUDES")
         FOREACH(DOMAIN ${USE_DOMAINS_UPPER})
             LIST(APPEND INCLUDE_ARG ${${DOMAIN}_ROOT})
+            STRING(TOLOWER "${DOMAIN}" LOWER_DOMAIN)
+            LIST(APPEND UPSTREAM_DOMAIN_TARGETS "${LOWER_DOMAIN}_protos")
         ENDFOREACH()
     ENDIF()
     PROTOBUF_GENERATE(PYTHON PYTHON_FILES
                       PROTOFILES ${${MY_NAME_UPPER}_PROTOS}
                       PROTOROOT ${${MY_NAME_UPPER}_ROOT}
                       ${INCLUDE_ARG}
+                      DEPENDS "${MY_NAME_LOWER}_protos" ${UPSTREAM_DOMAIN_TARGETS}
                       OUTPATH "${CMAKE_CURRENT_BINARY_DIR}/${MY_NAME_LOWER}")
 
     # find out the name of the egg file that is going to be generated
