@@ -11,6 +11,7 @@ option java_outer_classname = "SpatialAccelerationsType";
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message SpatialAccelerations {
 
     /**

@@ -12,6 +12,7 @@ option java_outer_classname = "BodyType";
  *
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
+// @create_collection(BodyList)
 message Body {
 
     /**

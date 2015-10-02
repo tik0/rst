@@ -12,6 +12,7 @@ option java_outer_classname = "Shape3DFloatType";
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Shape3DFloat {
 
     /**

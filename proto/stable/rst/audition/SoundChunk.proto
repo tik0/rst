@@ -24,6 +24,7 @@ option java_outer_classname = "SoundChunkType";
  * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
  */
 // @constraint(len(.data) == 8 * .channels * .sample_count * TODO(.sample_type))
+// @create_collection
 message SoundChunk {
 
     /**

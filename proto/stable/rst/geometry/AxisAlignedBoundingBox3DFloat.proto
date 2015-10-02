@@ -38,6 +38,7 @@ import "rst/geometry/Translation.proto";
  * @author Christian Emmerich <cemmeric@cor-lab.de>
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message AxisAlignedBoundingBox3DFloat {
 
     /**

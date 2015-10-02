@@ -11,6 +11,7 @@ option java_outer_classname = "PickAndPlaceActionType";
  *
  * @author Christian Emmerich <cemmeric@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message PickAndPlaceAction {
 
     /**

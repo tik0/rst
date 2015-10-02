@@ -15,6 +15,7 @@ option java_outer_classname = "HostInformationType";
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message HostInformation {
 
     /**

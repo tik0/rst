@@ -16,6 +16,7 @@ option java_outer_classname = "SimpleXYZImageType";
 // @constraint(.width * .height = len(.x))
 // @constraint(.width * .height = len(.y))
 // @constraint(.width * .height = len(.z))
+// @create_collection
 message SimpleXYZImage {
 
     /**

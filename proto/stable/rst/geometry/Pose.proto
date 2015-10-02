@@ -11,6 +11,7 @@ option java_outer_classname = "PoseType";
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Pose {
 
     /**

@@ -9,6 +9,7 @@ option java_outer_classname = "PointPairType";
  *
  * @author TODO
  */
+// @create_collection
 message PointPair {
 
     /**

@@ -9,6 +9,7 @@ import "rst/generic/Value.proto";
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message MethodCall {
 
     /**

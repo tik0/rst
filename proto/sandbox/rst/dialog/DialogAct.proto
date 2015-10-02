@@ -11,6 +11,7 @@ import "rst/dialog/SpeechHypotheses.proto";
  *
  * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message DialogAct {
 
     /**

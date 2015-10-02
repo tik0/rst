@@ -13,6 +13,7 @@ option java_outer_classname = "FieldOfViewType";
  *
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message FieldOfView {
 
     /**

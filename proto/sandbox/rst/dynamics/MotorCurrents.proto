@@ -7,6 +7,7 @@ option java_outer_classname = "MotorCurrentsType";
  *
  * @author Michael Wojtynek <mwojtynek@cor-lab.uni-bielefeld.de>
  */
+// @create_collection
 message MotorCurrents {
 
     /**

@@ -7,6 +7,7 @@ option java_outer_classname = "FrequencyType";
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Frequency {
 
     // @unit(hertz)

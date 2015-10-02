@@ -9,6 +9,7 @@ option java_outer_classname = "JointImpedanceType";
  * @todo "what is SI unit of rotatory damping?"
  */
 // @constraint(len(.stiffness) == len(.damping))
+// @create_collection
 message JointImpedance {
 
     /**

@@ -14,6 +14,7 @@ option java_outer_classname = "ViewFrustumType";
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
 // @constraint(.maximal_distance > .minimal_distance)
+// @create_collection
 message ViewFrustum {
 
     /**

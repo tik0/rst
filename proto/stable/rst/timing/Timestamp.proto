@@ -9,6 +9,7 @@ option java_outer_classname = "TimestampType";
  *
  * @author Agnes Swadzba <aswadzba@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Timestamp {
 
     /**

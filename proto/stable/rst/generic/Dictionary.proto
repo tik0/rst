@@ -9,6 +9,7 @@ import "rst/generic/KeyValuePair.proto";
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Dictionary {
 
     /**

@@ -9,6 +9,7 @@ option java_outer_classname = "RobotCollisionType";
  *
  * @author Daniel Seidel <dseidel@techfak.uni-bielefeld.DE>
  */
+// @create_collection
 message RobotCollision {
 
     /**

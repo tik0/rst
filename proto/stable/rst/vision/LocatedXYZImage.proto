@@ -16,6 +16,7 @@ option java_outer_classname = "LocatedXYZImageType";
  *
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message LocatedXYZImage {
 
     /**

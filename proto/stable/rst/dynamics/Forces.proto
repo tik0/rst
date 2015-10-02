@@ -7,6 +7,7 @@ option java_outer_classname = "ForcesType";
  *
  * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
  */
+// @create_collection
 message Forces {
     /**
      * Translatory force along the x axis.

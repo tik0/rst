@@ -10,6 +10,7 @@ option java_outer_classname = "CalibrationMatricesType";
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message CalibrationMatrices {
 
     required CameraMatrix3x4 left = 1;

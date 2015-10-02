@@ -31,6 +31,7 @@ option java_outer_classname = "BoundingBoxType";
 // @constraint(.top_left.x + .width <= .image_width)
 // @constraint(.top_left.y < .image_height)
 // @constraint(.top_left.y + .height <= .image_height)
+// @create_collection
 message BoundingBox {
 
     /**

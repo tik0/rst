@@ -7,6 +7,7 @@ option java_outer_classname = "UserStateType";
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message UserState {
 
     /**

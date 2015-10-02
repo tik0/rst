@@ -8,6 +8,7 @@ option java_outer_classname = "NetworkStateType";
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message NetworkState {
 
     /**

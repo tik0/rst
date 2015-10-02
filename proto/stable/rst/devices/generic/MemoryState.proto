@@ -9,6 +9,7 @@ option java_outer_classname = "MemoryStateType";
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message MemoryState {
 
     /**

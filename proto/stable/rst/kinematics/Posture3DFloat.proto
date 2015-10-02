@@ -13,6 +13,7 @@ option java_outer_classname = "Posture3DFloatType";
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message Posture3DFloat {
 
     /**

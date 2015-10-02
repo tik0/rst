@@ -13,6 +13,7 @@ import "rst/timing/Interval.proto";
  *
  * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message IncrementalUnit {
 
     /**

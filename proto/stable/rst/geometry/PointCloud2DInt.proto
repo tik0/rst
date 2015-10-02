@@ -9,6 +9,7 @@ import "rst/math/Vec2DInt.proto";
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message PointCloud2DInt {
 
     /**

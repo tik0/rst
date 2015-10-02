@@ -12,6 +12,7 @@ option java_outer_classname = "GroupHypothesisType";
  *
  * @author David Klotz <dklotz@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message GroupHypothesis {
 
     /**

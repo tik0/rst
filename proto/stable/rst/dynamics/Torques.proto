@@ -11,6 +11,7 @@ option java_outer_classname = "TorquesType";
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  * @todo "can we be more specific about the axes here?"
  */
+// @create_collection
 message Torques {
 
     /**

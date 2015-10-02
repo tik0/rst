@@ -7,6 +7,7 @@ option java_outer_classname = "BatteryStateType";
  *
  * @author Jens-Christian Seele <jseele@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message BatteryState {
 
     /**
