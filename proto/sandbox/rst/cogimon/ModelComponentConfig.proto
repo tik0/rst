@@ -1,0 +1,37 @@
+package rst.cogimon;
+
+option java_outer_classname = "ModelComponentConfigType";
+
+/**
+ * Holds the configuration to deploy an Orocos RTT component as well as
+ * to attach a specific Gazebo model to it.
+ *
+ * @author Dennis Leroy Wigand <dwigand@cor-lab.uni-bielefeld.de>
+ */
+message ModelComponentConfig {
+
+    /**
+     * component_name - name of the component to deploy
+     */
+    required string component_name = 1;
+
+    /**
+     * component_type - type of the component (i.e. class name)
+     */
+    required string component_type = 2;
+
+    /**
+     * component_package - package containing the component
+     */
+    required string component_package = 3;
+
+    /**
+     * model_name - name of the pre-loaded model to attach
+     */
+    required string model_name = 4;
+
+    /**
+     * script - ops or lua script to apply further configurations
+     */
+    required string script = 5;
+}
