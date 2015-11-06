@@ -35,7 +35,7 @@ class Check(object):
 
 class CheckPackageMatchFolder(Check):
 
-    packageRegEx = re.compile("package (.+);")
+    packageRegEx = re.compile("^package (.+);")
 
     def check(self):
         declaredPackages = self.packageRegEx.findall(self.fileContents)
