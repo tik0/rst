@@ -1,0 +1,63 @@
+package rst.tts;
+
+import "rst/tts/Prosody.proto";
+
+option java_outer_classname = "TextToSpeechInstructionType";
+
+/**
+ * Instructions to a Text-to-Speech module regarding the production of
+ * text.
+ *
+ * @author Soeren Klett <sklett@techfak.uni-bielefeld.de>
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message TextToSpeechInstruction {
+
+    /**
+     * The text to produce in case of @ref .PlaybackOption.PLAY. In all
+     * other cases this needs to be empty.
+     */
+    optional string text = 1;
+
+    /**
+     * Prosody to be applied to everything contained in @ref .text.
+     */
+    optional Prosody prosody = 2;
+
+    /**
+     * Possible actions the TTS engine has to perform.
+     */
+    enum PlaybackOption {
+
+        /**
+         * Produce the text given in @ref .text.
+         * If TTS is already playing a text message, this command
+         * should be ignored.
+         */
+        PLAY = 0;
+
+        /**
+         * Stop the current production and discard it.
+         */
+        STOP = 1;
+
+        /**
+         * Pause the current production. This allows to resume it using
+         * @ref .RESUME.
+         */
+        PAUSE = 2;
+
+        /**
+         * Resume a previously pause text production.
+         * If nothing has been paused before, this should be ignored.
+         */
+        RESUME = 3;
+
+    }
+
+    /**
+     * Action to be executed by the Text-to-Speech engine.
+     */
+    optional PlaybackOption playback_option = 3 [default = PLAY];
+
+}
