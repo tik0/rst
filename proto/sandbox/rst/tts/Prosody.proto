@@ -1,0 +1,85 @@
+package rst.tts;
+
+option java_outer_classname = "ProsodyType";
+
+/**
+ * Describes a prosody for an amount of text. It is assumed that there
+ * are application-specific default values for all aspects of the
+ * prosody (pitch, range, etc.). The prosody can be expressed either in
+ * relation to the baseline values or with absolute values.
+ *
+ * All aspects of the prosody are optional. In case an aspect is not
+ * defined, an executing TTS engine can decide on these aspects.
+ *
+ * @author Soeren Klett <sklett@techfak.uni-bielefeld.de>
+ * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message Prosody {
+
+    /**
+     * Specifies the value for a prosody aspect using multiple possible
+     * formulations, which are represented by the different attributes
+     * of the message.
+     *
+     * Exactly one of the attributes needs to be set.
+     */
+    message Value {
+
+        /**
+         * Absolut value in the target unit.
+         */
+        optional float absolute = 1;
+
+        /**
+         * Offset to an application-specific default value given in the
+         * target unit.
+         */
+        optional float relative = 2;
+
+        /**
+         * Percentage of the application-specific default value.
+         *
+         * 100% equals 1.0.
+         */
+        // @constraint(value > 0)
+        optional float percentage = 3 [default = 1];
+
+    }
+
+    /**
+     * The baseline pitch for the contained words.
+     *
+     * Absolute and relative values are expressed in Hz.
+     */
+    optional Value pitch = 1;
+
+    /**
+     * The pitch range (variability) of the contained words.
+     *
+     * Absolute and relative values are expressed in Hz.
+     */
+    optional Value range = 2;
+
+    /**
+     * The desired change of volume of the contained words.
+     *
+     * Absolute and relative values are expressed in dB.
+     */
+    optional Value volume = 3;
+
+    /**
+     * A value in seconds for the desired time to take to read the
+     * contained words.
+     */
+    // @unit(second)
+    // @constraint(value >= 0)
+    optional float duration = 4;
+
+    /**
+     * Relative speech rate given as a percentage of the
+     * application-specific base rate.
+     */
+    // @constraint(value >= 0)
+    optional float rate = 5 [default = 1];
+
+}
