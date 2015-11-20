@@ -1,0 +1,41 @@
+package rst.calendar;
+
+option java_outer_classname = "CalendarQueryType";
+
+import "rst/calendar/DateTime.proto";
+
+/**
+ * A request for calendar data.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message CalendarQuery {
+
+    /**
+     * Ignore calendar components before start time.
+     */
+    optional DateTime start_time = 1;
+
+    /**
+     * Ignore calendar components afrer end time.
+     */
+    optional DateTime end_time = 2;
+
+    /**
+     * Search for @ref Todo entries.
+     */
+    optional bool search_todos = 3 [default = true];
+
+    /**
+     * Search for @ref Event entries.
+     */
+    optional bool search_events = 4 [default = true];
+
+    /**
+     * If this is true, each entry which is between @ref .start_time
+     * and @ref .end_time will be augmented with a list of time
+     * periods in which it occurs.
+     */
+    optional bool calculate_time_periods = 5 [default = false];
+
+}
