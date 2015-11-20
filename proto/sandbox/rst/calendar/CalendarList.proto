@@ -1,0 +1,17 @@
+package rst.calendar;
+
+option java_outer_classname = "CalendarListType";
+
+/**
+ * A List of available calendars.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message CalendarList {
+
+    /**
+     * A List of calender id.
+     */
+    repeated string calendar_id = 1;
+
+}

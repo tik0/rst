@@ -1,0 +1,69 @@
+package rst.calendar;
+
+option java_outer_classname = "CalendarQueryResultType";
+
+import "rst/calendar/DateTime.proto";
+import "rst/calendar/Event.proto";
+import "rst/calendar/Todo.proto";
+import "rst/calendar/TimeZone.proto";
+
+/**
+ * The answer to a @ref CalendarQuery.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message CalendarQueryResult {
+
+    /**
+     * Describes one specific time period.
+     */
+    message TimePeriod {
+
+        /**
+         * When the time period starts.
+         */
+        required DateTime start = 1;
+
+        /**
+         * When the time period ends.
+         */
+        required DateTime end = 2;
+    }
+
+    /**
+     * Describes an event and optionally all of its occurrences.
+     */
+    message EventWithTimes {
+
+        /**
+         * The event description.
+         */
+        required Event event = 1;
+
+        /**
+         * Time periods where this event applies to.
+         */
+        repeated TimePeriod time = 2;
+
+    }
+
+    /**
+     * The list of timezones needed by the @ref Event and @ref Todo
+     * messages contained in this message.
+     */
+    repeated TimeZone timezone = 1;
+
+    /**
+     * A list of @ref Event messages that match the corresponding @ref
+     * CalendarQuery and their occurrence times (when requested).
+     */
+    repeated EventWithTimes event = 2;
+
+    /**
+     * A list of @ref Todo messages that match the corresponding @ref
+     * CalendarQuery.
+     */
+    repeated Todo todo = 3;
+
+
+}

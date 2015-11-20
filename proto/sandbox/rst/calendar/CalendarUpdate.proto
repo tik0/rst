@@ -1,0 +1,40 @@
+package rst.calendar;
+
+option java_outer_classname = "CalendarUpdateType";
+
+import "rst/calendar/Event.proto";
+import "rst/calendar/Todo.proto";
+import "rst/calendar/TimeZone.proto";
+
+/**
+ * Describes changes between two calendar versions.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message CalendarUpdate {
+
+    /**
+     * A set of @ref TimeZone messages needed by the @ref Event
+     * messages and @ref Todo messages in this message.
+     */
+    repeated TimeZone timezones = 3;
+
+    /**
+     * A set of @ref Event messages which changed between the two
+     * versions.
+     */
+    repeated Event changed_events = 4;
+
+    /**
+     * A set of @ref Todo messages which changed between the two
+     * versions.
+     */
+    repeated Todo changed_todos = 5;
+
+    /**
+     * A set of ids of entries (@ref Todo and @ref Event messages)
+     * which were removed between the two versions.
+     */
+    repeated string removed_entry_ids = 6;
+
+}
