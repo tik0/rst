@@ -1,0 +1,39 @@
+package rst.classification;
+
+import "rst/classification/ClassificationResult.proto";
+
+option java_outer_classname = "ClassificationResultMapType";
+
+/**
+ * A map of @ref .rst.classification.ClassificationResult instances.
+ * Entries are indexed by string keys.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message ClassificationResultMap {
+
+    /**
+     * One entry of the map as a key-value pair.
+     */
+    message Entry {
+
+        /**
+         * The name or key of the entry.
+         */
+        required string name = 1;
+
+        /**
+         * The associated @ref .rst.classification.ClassificationResult
+         * of the entry.
+         */
+        required ClassificationResult result = 2;
+
+    }
+
+    /**
+     * The map contents. Each @ref Entry.key must exist only once. Order
+     * does not matter. Empty set is allowed.
+     */
+    repeated Entry aspects = 1;
+
+}
