@@ -70,4 +70,9 @@ message IncrementalUnit {
      */
     repeated bytes gil_id = 5;
 
+    /**
+     * Edit type of the incremental unit.
+     */
+    required EditType state = 6;
+
 }
