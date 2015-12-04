@@ -15,14 +15,17 @@ option java_outer_classname = "FaceType";
 message Face {
 
     /**
-     * TODO Bounding box for the detection.
+     * Bounding box defining the location of the detected face in a
+     * camera image.
      */
     required geometry.BoundingBox region = 1;
 
     /**
-     * TODO Detection confidence factor.
+     * Indicates the confidence of the detector that this detection
+     * result is actually a real face. Higher values indicate a higher
+     * confidence.
      */
-    // @unit(TODO)
+    // @constraint(0 <= value <= 1)
     optional double confidence = 2;
 
 }
