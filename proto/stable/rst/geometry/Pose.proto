@@ -6,8 +6,8 @@ import "rst/geometry/Rotation.proto";
 option java_outer_classname = "PoseType";
 
 /**
- * Pose data (camera, robot, ...).
- * @todo "extend explanation"
+ * Represents the pose (translation and rotation) of something in a
+ * coordinate system.
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
@@ -15,12 +15,14 @@ option java_outer_classname = "PoseType";
 message Pose {
 
     /**
-     * TODO
+     * The translation of the object with respect to the origin of the
+     * coordinate system.
      */
     required Translation translation = 1;
 
     /**
-     * TODO
+     * The rotation of the object at the position described by
+     * @ref .translation with respect to the coordinate system.
      */
     required Rotation rotation = 2;
 
