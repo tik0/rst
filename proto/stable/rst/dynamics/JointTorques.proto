@@ -11,7 +11,7 @@ option java_outer_classname = "JointTorquesType";
 message JointTorques {
 
     /**
-     * TODO
+     * List of torques. Order is important.
      */
     // @unit(newton-meter)
     repeated float torques = 1 [packed=true];
