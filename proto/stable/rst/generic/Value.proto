@@ -7,8 +7,8 @@ option java_outer_classname = "ValueType";
  *
  * Each value has a declared type in @ref .type indicating which of the
  * remaining type-specific fields contains the value, expect for
- * @ref .Type.VOID, where no value is transported at all (most useful for return
- * types).
+ * @ref .Type.VOID, where no value is transported at all (most useful
+ * for return types).
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
@@ -18,17 +18,44 @@ message Value {
      * The list of supported types.
      */
     enum Type {
-        VOID = 1;
-        INT = 2;
-        DOUBLE = 3;
-        STRING = 4;
-        BOOL = 5;
-        BINARY = 6;
+
         /**
-         * Indicate that a list of Values is contained in @ref Value.array
-         * representing an array.
+         * Indicates that no data is transported.
+         */
+        VOID = 1;
+
+        /**
+         * Indicates that an integer value is transported.
+         */
+        INT = 2;
+
+        /**
+         * Indicates that a double precision floating point number is
+         * transported.
+         */
+        DOUBLE = 3;
+
+        /**
+         * Indicates that a UTF-8 encoded string is transported.
+         */
+        STRING = 4;
+
+        /**
+         * Indicates that a boolean value is transported.
+         */
+        BOOL = 5;
+
+        /**
+         * Indicates that a blob of binary data is transported.
+         */
+        BINARY = 6;
+
+        /**
+         * Indicate that a list of Values is contained in @ref
+         * Value.array representing an array.
          */
         ARRAY = 7;
+
     }
 
     /**
@@ -36,13 +63,39 @@ message Value {
      */
     required Type type = 1;
 
-    optional int64 int = 2;
-    optional double double = 3;
-    optional string string = 4;
-    optional bool bool = 5;
-    optional bytes binary = 6;
     /**
-     * Contained elements can be of different types and ordering is important.
+     * Contains the integer value in case @ref .type is @ref .Type.INT.
+     */
+    optional int64 int = 2;
+
+    /**
+     * Contains the double value in case @ref .type is
+     * @ref .Type.DOUBLE.
+     */
+    optional double double = 3;
+
+    /**
+     * Contains the string value in case @ref .type is
+     * @ref .Type.STRING.
+     */
+    optional string string = 4;
+
+    /**
+     * Contains the boolean value in case @ref .type is @ref .Type.BOOL.
+     */
+    optional bool bool = 5;
+
+    /**
+     * Contains the binary data in case @ref .type is @ref .Type.BINARY.
+     */
+    optional bytes binary = 6;
+
+    /**
+     * Represents the contents of an array in case @ref .type is @ref
+     * .Type.ARRAY.
+     *
+     * Contained elements can be of different types and ordering is
+     * important.
      */
     repeated Value array = 7;
 
