@@ -24,7 +24,9 @@ message ClassificationResult {
     required bytes decided_class = 1;
 
     /**
-     * TODO
+     * Represents a single class a classification process can return
+     * with the probability that this class applies to the classified
+     * aspect.
      */
     message ClassWithProbability {
 
@@ -38,8 +40,8 @@ message ClassificationResult {
          *
          * However, values summing up to 1 are preferred.
          */
-        // @unit(TODO)
         required float confidence = 2;
+
     }
 
     /**
