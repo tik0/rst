@@ -9,6 +9,7 @@ option java_outer_classname = "ForcesType";
  */
 // @create_collection
 message Forces {
+
     /**
      * Translatory force along the x axis.
      */
@@ -26,4 +27,5 @@ message Forces {
      */
     // @unit(newton)
     required float z = 3;
+
 }

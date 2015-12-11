@@ -27,4 +27,5 @@ message JointImpedance {
      */
     // @unit(newton-meter / rad)
     repeated float damping = 2;
+
 }
