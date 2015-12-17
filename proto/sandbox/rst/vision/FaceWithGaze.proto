@@ -1,0 +1,44 @@
+package rst.vision;
+
+import "rst/vision/Face.proto";
+
+option java_outer_classname = "FaceWithGazeType";
+
+/**
+ * An object of this type represents a human face detected in an image
+ * including gaze informations.
+ *
+ * @author "Birte Carlmeyer" <bcarlmey@techfak.uni-bielefeld.de>
+ */
+message FaceWithGaze {
+
+    /**
+     * The region of the image which corresponds to the face.
+     */
+    required Face region = 1;
+
+    /**
+     * If this is true, the eyelids are closed.
+     */
+    optional bool lid_closed = 2;
+
+    /**
+     * Horizontal gaze estimation angle. A relative rotation from the
+     * default gaze when the person looks straight into the camera.
+     * Positive values means that the person is looking upwards and
+     * negative value means that the person is looking downwards.
+     */
+    // @unit(radian)
+    optional double horizontal_gaze_estimation = 3;
+
+    /**
+     * Vertical gaze estimation angle. A relative rotation from the
+     * default gaze when the person looks straight into the camera.
+     * Positive values means that the person is looking to the right and
+     * negative values means that the person is looking to the left
+     * (from the persons point of view).
+     */
+    // @unit(radian)
+    optional double vertical_gaze_estimation = 4;
+
+}
