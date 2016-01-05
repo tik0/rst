@@ -1,0 +1,98 @@
+package rst.animation;
+
+option java_outer_classname = "HeadAnimationType";
+
+/**
+ * This type describes a set of simple (predefined) animations to be
+ * executed on a humanoid robotic head.
+ *
+ * @author Simon Schulz <sschulz@techfak.uni-bielefeld.de>
+ */
+message HeadAnimation {
+
+    /**
+     * Predefined animation to execute by the head.
+     */
+    enum Animation {
+        /**
+         * No animation, idle.
+         */
+        IDLE = 0;
+        /**
+         * Nodding.
+         */
+        HEAD_NOD = 1;
+        /**
+         * Shake.
+         */
+        HEAD_SHAKE = 2;
+        /**
+         * Blink with the left eye.
+         */
+        EYEBLINK_LEFT = 3;
+        /**
+         * Blink with the right eye.
+         */
+        EYEBLINK_RIGHT = 4;
+        /**
+         * Blink with both eyes.
+         */
+        EYEBLINK_BOTH = 5;
+        /**
+         * Raise both eyebrows
+         */
+        EYEBROWS_RAISE = 6;
+        /**
+         * Lower the eyebrows.
+         */
+        EYEBROWS_LOWER = 7;
+        /**
+         * Shift the head orientation to the left.
+         */
+        ENGAGEMENT_LEFT = 8;
+        /**
+         * Shift the head orientation to the right.
+         */
+        ENGAGEMENT_RIGHT = 9;
+    }
+
+    /**
+     * Requested animation to perform.
+     */
+    required Animation animation = 1;
+
+    /**
+     * Number of repetitions.
+     *
+     * Defaults to one repetition
+     *
+     */
+    // @constraint(value > 0)
+    required uint32 repetitions = 2 [default = 1];
+
+    /**
+     * The duration of each execution of the defined animation.
+     *
+     * The duration is given in milliseconds.
+     *
+     */
+    // @constraint(value > 0)
+    // @unit(millisecond)
+    required uint32 duration_each = 3;
+
+    /**
+     * How to scale the animation with respect to the expressed emphasis.
+     *
+     * Given as a float value. Different value ranges express the
+     * following meanings:
+     *
+     *  * ``]0, 1[``: less pronounced
+     *
+     *  * ``[1, 1]``: as designed, no special emphasis
+     *
+     *  * ``]1, n]``: over pronounced
+     */
+    // @constraint(value > 0)
+    required float emphasis_scale = 4 [default = 1.0];
+
+}
