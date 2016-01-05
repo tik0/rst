@@ -1,0 +1,34 @@
+package rst.geometry;
+
+option java_outer_classname = "SphericalDirectionFloatType";
+
+/**
+ * Describes a direction using two angles in a spherical coordinate
+ * system which is grounded in a right-handed 3D Cartesian coordinate
+ * system. Rotations follow the right-hand rule.
+ *
+ * @see https://en.wikipedia.org/wiki/Spherical_coordinate_system
+ * @see https://en.wikipedia.org/wiki/Right-hand_rule
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
+ */
+message SphericalDirectionFloat {
+
+    /**
+     * Describes the rotation around the z axis of the underlying
+     * Cartesian coordinate system. A value of 0 zero points into the
+     * positive direction of the X axis.
+     */
+    // @unit(radian)
+    required float azimuth = 1;
+
+    /**
+     * elevation angle with respect to the X-Y plane of the reference
+     * Cartesian coordinate system. A value of 0 points towards the
+     * "horizon".
+     */
+    // @unit(radian)
+    required float elevation = 2;
+
+}
