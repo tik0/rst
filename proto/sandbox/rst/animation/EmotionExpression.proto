@@ -1,0 +1,59 @@
+package rst.animation;
+
+option java_outer_classname = "EmotionExpressionType";
+
+/**
+ * Description of one of a set of predefined emotions to express by a
+ * robot for a certain time.
+ *
+ * @author Simon Schulz <sschulz@techfak.uni-bielefeld.de>
+ */
+message EmotionExpression {
+
+    /**
+     * The available emotions to express. Apart from being neutral,
+     * these relate to Ekman's basic emotions.
+     */
+    enum Emotion {
+        /**
+         * Neutral expression.
+         */
+        NEUTRAL = 0;
+        /**
+         * Happiness.
+         */
+        HAPPY = 1;
+        /**
+         * Sadness.
+         */
+        SAD = 2;
+        /**
+         * Being angry.
+         */
+        ANGRY = 3;
+        /**
+         * Being surprised.
+         */
+        SURPRISED = 4;
+        /**
+         * Being feared.
+         */
+        FEAR = 5;
+    }
+
+    /**
+     * Indicates which emotion to express.
+     */
+    required Emotion emotion = 1;
+
+    /**
+     * The duration how long this emotion should be displayed.
+     *
+     * The duration is given in milliseconds.
+     *
+     */
+    // @constraint(value > 0)
+    // @unit(millisecond)
+    required uint32 duration = 2;
+
+}

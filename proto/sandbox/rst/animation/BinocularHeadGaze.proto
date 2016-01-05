@@ -1,0 +1,55 @@
+package rst.animation;
+
+option java_outer_classname = "BinocularHeadGazeType";
+
+import "rst/geometry/SphericalDirectionFloat.proto";
+
+/**
+ * Description of a gaze configuration of a system having tow eyes
+ * mounted on a pan-tilt joint (something like a human or robot
+ * head).
+ *
+ * @author Simon Schulz <sschulz@techfak.uni-bielefeld.de>
+ */
+message BinocularHeadGaze {
+
+    /**
+     * Spherical direction of the target to gaze at with respect to a
+     * neutral "straight-ahead" direction of the described "head". The
+     * direction originates from the center point between both eyes. The
+     * underlying Cartesian coordinate system of the spherical
+     * coordinates is as follows:
+     *
+     *  * The positive X axis points towards the "straight-ahead"
+     *    direction.
+     *
+     *  * The positive Y axis points to the head's left direction.
+     *
+     *  * The positive Z axis points up with respect to the
+     *    "straight-ahead" direction of the head.
+     */
+    required .rst.geometry.SphericalDirectionFloat target = 1;
+
+    /**
+     * Vergence angle of both eyes. This describes how both eyes deviate
+     * from a parallel configuration. The default of 0.0 describes a
+     * straight, parallel gaze. The angles are expressed as a rotation
+     * around the normal vector of a plane defined by the connecting
+     * line between both eyes and a ray that points into the neutral
+     * "straight-ahead" direction of the eyes. Each eye's adjustment
+     * angle is 0.5 times the given value where positive values
+     * correspond to the eyes moving inwards.
+     */
+    // @unit(radian)
+    required float eye_vergence = 2 [default = 0.0];
+
+    /**
+     * Offset angles describing how much the head direction deviates
+     * from @ref .target. The overall gaze (head + eyes) will still
+     * point to the requested target
+     *
+     * [0, 0] corresponds to no offset.
+     */
+    required .rst.geometry.SphericalDirectionFloat offset = 3;
+
+}
