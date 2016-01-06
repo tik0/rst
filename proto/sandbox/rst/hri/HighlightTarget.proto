@@ -1,0 +1,63 @@
+package rst.hri;
+
+import "rst/timing/Duration.proto";
+
+option java_outer_classname = "HighlightTargetType";
+
+/**
+ * Specifies a target that should be highlighted by an intelligent
+ * system, e.g. to elicit attention of a human interaction partner.
+ *
+ * @author Patrick Holthaus <pholthau@techfak.uni-bielefeld.de>
+ */
+message HighlightTarget {
+
+    /**
+     * The modality to use.
+     */
+    enum Modality {
+
+        /**
+         * Use gaze to refer to the target that should be highlighted.
+         */
+        GAZE = 1;
+
+        /**
+         * Use gestures to refer to the target, e.g. pointing.
+         */
+        GESTURE = 2;
+
+        /**
+         * Use (ambient) light at the target, e.g. leds or surrounding
+         * lights.
+         */
+        AMBIENT_LIGHT = 3;
+
+        /**
+         * Use (ambient) sound at the target, e.g. beeps.
+         */
+        SOUND = 4;
+
+        /**
+         * Use a spot(-light) that points to the target.
+         */
+        SPOT_LIGHT = 5;
+
+    }
+
+    /**
+     * The target that should be highlighted.
+     */
+    required string target_id = 1;
+
+    /**
+     * How long to highlight the target.
+     */
+    required rst.timing.Duration duration = 2;
+
+    /**
+     * A list of modalities to use for highlighting.
+     */
+    repeated Modality modality = 3;
+
+}
