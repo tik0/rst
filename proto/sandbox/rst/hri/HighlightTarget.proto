@@ -53,7 +53,7 @@ message HighlightTarget {
     /**
      * How long to highlight the target.
      */
-    required rst.timing.Duration duration = 2;
+    required .rst.timing.Duration duration = 2;
 
     /**
      * A list of modalities to use for highlighting.
