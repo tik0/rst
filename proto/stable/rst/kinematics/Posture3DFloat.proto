@@ -13,6 +13,8 @@ option java_outer_classname = "Posture3DFloatType";
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
+// @constraint((len(.rotation) = 0) or (len(.rotation) = len(.position)))
+// @constraint((len(.name) = 0) or (len(.name) = len(.position)))
 // @create_collection
 message Posture3DFloat {
 
@@ -27,5 +29,21 @@ message Posture3DFloat {
      * within the sequence.
      */
     repeated geometry.Translation position = 2;
+
+    /**
+     * Sequence of joint rotations in three-dimensional space.
+     *
+     * Interpretation depends on information transmitted trough other
+     * channels.
+     *
+     * The order of entries is significant since they are related to
+     * their @ref .position.
+     */
+    repeated geometry.Rotation rotation = 3;
+
+    /**
+     * Names of the individual positions stored in @ref .posture.
+     */
+    repeated bytes name = 4;
 
 }
