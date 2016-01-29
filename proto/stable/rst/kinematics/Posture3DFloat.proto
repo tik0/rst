@@ -1,5 +1,6 @@
 package rst.kinematics;
 
+import "rst/geometry/Rotation.proto";
 import "rst/geometry/Translation.proto";
 
 option java_outer_classname = "Posture3DFloatType";
