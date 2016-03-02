@@ -1,0 +1,5 @@
+/**
+ * This package contains data types for related to control of
+ * articulated structures such as robotic manipulators.
+ */
+package rst.motioncontrol;
