@@ -33,6 +33,5 @@ message ModelComponentConfig {
     /**
      * script - ops or lua script to apply further configurations
      */
-    required string script = 5;
-
+    optional string script = 5;
 }
