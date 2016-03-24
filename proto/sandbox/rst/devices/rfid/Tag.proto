@@ -8,7 +8,7 @@ option java_outer_classname = "TagType";
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  * @author Sebastian Wrede <swrede@techfak.uni-bielefeld.de>
  */
- // @create_collection
+// @create_collection
 message Tag {
 
     /**
