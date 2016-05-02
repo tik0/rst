@@ -93,7 +93,11 @@ message TaskState {
         UPDATE_REJECTED    = 4;
 
         /**
-         * @todo document
+         * Client publishes specification with @ref .ABORT state to
+         * request execution of the task to be aborted.
+         *
+         * Server accept or rejects this and publishes specification
+         * with @ref .ABORTED or @ref .ABORT_FAILED state accordingly.
          */
         ABORT                = 5;
 

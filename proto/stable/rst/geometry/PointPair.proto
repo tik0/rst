@@ -5,20 +5,20 @@ import "rst/math/Vec2DFloat.proto";
 option java_outer_classname = "PointPairType";
 
 /**
- * A message representing a pair of 2D Points
+ * A pair of 2D Points with float entries.
  *
- * @author TODO
+ * @author Jordi Sanchez Riera <jordi.sanchez-riera@inrialpes.fr>
  */
 // @create_collection
 message PointPair {
 
     /**
-     * TODO
+     * The first point.
      */
     required math.Vec2DFloat first = 1;
 
     /**
-     * TODO
+     * The second point.
      */
     required math.Vec2DFloat second = 2;
 

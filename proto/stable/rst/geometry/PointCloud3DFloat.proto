@@ -8,12 +8,13 @@ import "rst/math/Vec3DFloat.proto";
  * A collection of points in 3D space.
  *
  * @author Jordi "Sanchez Riera" <jordi.sanchez-riera@inrialpes.fr>
- * @todo "correct author?"
  */
 message PointCloud3DFloat {
 
     /**
-     * TODO
+     * The points of the cloud.
+     *
+     * Order of elements does not matter.
      */
     // @unit(meter?)
     repeated math.Vec3DFloat points = 1;

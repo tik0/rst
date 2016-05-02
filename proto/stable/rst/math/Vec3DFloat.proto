@@ -5,22 +5,22 @@ option java_outer_classname = "Vec3DFloatType";
 /**
  * A 3D vector with float entries.
  *
- * @author TODO
+ * @author Michael Goetting <mgoettin@techfak.uni-bielefeld.de>
  */
 message Vec3DFloat {
 
     /**
-     * TODO
+     * The X-component of the vector.
      */
     required float x = 1 [default = 0];
 
     /**
-     * TODO
+     * The Y-component of the vector.
      */
     required float y = 2 [default = 0];
 
     /**
-     * TODO
+     * The Z-component of the vector.
      */
     required float z = 3 [default = 0];
 

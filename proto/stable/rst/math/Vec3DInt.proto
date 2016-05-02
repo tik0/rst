@@ -5,22 +5,22 @@ option java_outer_classname = "Vec3DIntType";
 /**
  * A 3D vector with integer entries.
  *
- * @author TODO
+ * @author Michael Goetting <mgoettin@techfak.uni-bielefeld.de>
  */
 message Vec3DInt {
 
     /**
-     * TODO
+     * The X component of the vector.
      */
     required int32 x = 1 [default = 0];
 
     /**
-     * TODO
+     * The Y component of the vector.
      */
     required int32 y = 2 [default = 0];
 
     /**
-     * TODO
+     * The Z component of the vector.
      */
     required int32 z = 3 [default = 0];
 

@@ -28,9 +28,10 @@ option java_outer_classname = "SoundChunkType";
 message SoundChunk {
 
     /**
-     * TODO
+     * The possible data types for representing individual samples.
      */
     enum SampleType {
+
         /**
          * Signed 8-bit samples.
          */
@@ -60,46 +61,64 @@ message SoundChunk {
          * Unsigned 24-bit samples.
          */
         SAMPLE_U24 = 16;
+
     }
 
     /**
-     * TODO
+     * The possible byte-orders for representing samples.
      */
     enum EndianNess {
+
+        /**
+         * Samples are represented with little Endian byte-order.
+         */
         ENDIAN_LITTLE = 0;
+
+        /**
+         * Samples are represented with big Endian byte-order.
+         */
         ENDIAN_BIG = 1;
     }
 
     /**
-     * TODO
+     * The sequences of bytes representing the samples of this sound
+     * chunk.
+     *
+     * The value of this field must be interpreted according to the
+     * values of the @ref .sample_count, @ref .channels, @ref
+     * .sample_type and @ref .endianness fields.
      */
     required bytes data = 1;
 
     /**
-     * TODO
+     * The number of samples contained in @ref .data.
      */
     // @unit(number)
     required uint32 sample_count = 2;
 
     /**
-     * TODO
+     * The number of channels for which samples are stored in @ref
+     * .data.
      */
     // @unit(number)
     optional uint32 channels = 3 [default = 1];
 
     /**
-     * TODO
+     * The rate with which the samples stored in @ref .data haven been
+     * recorded or should be played.
      */
     // @unit(hz)
     optional uint32 rate = 4 [default = 44100];
 
     /**
-     * TODO
+     * The data type used for the representation of samples in @ref
+     * .data.
      */
     optional SampleType sample_type = 5 [default = SAMPLE_S16];
 
     /**
-     * TODO
+     * The Endianness used for the representation of samples in @ref
+     * .data.
      */
     optional EndianNess endianness = 6 [default = ENDIAN_LITTLE];
 

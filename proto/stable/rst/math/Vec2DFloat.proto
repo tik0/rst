@@ -5,17 +5,17 @@ option java_outer_classname = "Vec2DFloatType";
 /**
  * A 2D vector with float entries.
  *
- * @author TODO
+ * @author Michael Goetting <mgoettin@techfak.uni-bielefeld.de>
  */
 message Vec2DFloat {
 
     /**
-     * TODO
+     * The X component of the vector.
      */
     required float x = 1 [default = 0];
 
     /**
-     * TODO
+     * The Y component of the vector.
      */
     required float y = 2 [default = 0];
 

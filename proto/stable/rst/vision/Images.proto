@@ -5,14 +5,16 @@ import "rst/vision/Image.proto";
 option java_outer_classname = "ImagesType";
 
 /**
- * TODO A collection of images.
+ * A collection of images.
  *
  * @author "Johannes Wienke" <jwienke@techfak.uni-bielefeld.de>
  */
 message Images {
 
     /**
-     * TODO
+     * The images contained in the collection.
+     *
+     * Order of elements does not matter.
      */
     repeated Image images = 1;
 

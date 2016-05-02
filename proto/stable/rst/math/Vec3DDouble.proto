@@ -5,22 +5,22 @@ option java_outer_classname = "Vec3DDoubleType";
 /**
  * A 3D vector with double entries.
  *
- * @author TODO
+ * @author Michael Goetting <mgoettin@techfak.uni-bielefeld.de>
  */
 message Vec3DDouble {
 
     /**
-     * TODO
+     * The X component of the vector.
      */
     required double x = 1 [default = 0];
 
     /**
-     * TODO
+     * The Y component of the vector.
      */
     required double y = 2 [default = 0];
 
     /**
-     * TODO
+     * The Z component of the vector.
      */
     required double z = 3 [default = 0];
 
