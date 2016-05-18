@@ -52,6 +52,8 @@ setup(name='rstsandbox',
 
       packages=find_packages(exclude=['build', 'rst.*', 'rst']),
 
+      install_requires=['protobuf==@PROTOBUF_PROTOC_VERSION@'],
+
       cmdclass={'print_outputs' : PrintOutputs},
 
       )

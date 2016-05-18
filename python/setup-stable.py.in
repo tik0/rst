@@ -52,6 +52,8 @@ setup(name='rst',
 
       packages=find_packages(exclude=['build/*.py']),
 
+      install_requires=['protobuf==@PROTOBUF_PROTOC_VERSION@'],
+
       cmdclass={'print_outputs' : PrintOutputs},
 
       )
