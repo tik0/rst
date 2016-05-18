@@ -40,7 +40,7 @@ class PrintOutputs(Command):
         for o in c.get_outputs():
             print("##### %s" % o)
 
-setup(name='rst',
+setup(name='rststable',
       version='@RST_VERSION@',
       description='''
                   Robotics Systems Types
