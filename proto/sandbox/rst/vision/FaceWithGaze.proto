@@ -10,6 +10,7 @@ option java_outer_classname = "FaceWithGazeType";
  *
  * @author "Birte Carlmeyer" <bcarlmey@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message FaceWithGaze {
 
     /**
