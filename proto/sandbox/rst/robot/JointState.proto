@@ -1,0 +1,32 @@
+package rst.robot;
+
+import "rst/kinematics/JointAngles.proto";
+import "rst/kinematics/JointVelocities.proto";
+import "rst/dynamics/JointTorques.proto";
+
+option java_outer_classname = "JointStateType";
+
+/**
+ * Contains the feedback of multiple robotic joints.
+ *
+ * @author Dennis Leroy Wigand <dwigand@cor-lab.uni-bielefeld.de>
+ */
+// @create_collection
+message JointState {
+
+    /**
+     * Joint angles
+     */
+    required kinematics.JointAngles angles = 1;
+
+    /**
+     * Joint velocities
+     */
+    required kinematics.JointVelocities velocities = 2;
+
+    /**
+     * Joint torques
+     */
+    required dynamics.JointTorques torques = 3;
+
+}
