@@ -1,0 +1,22 @@
+package rst.robot;
+
+option java_outer_classname = "WeightsType";
+
+/**
+ * A sequence of weights.
+ *
+ * @author Niels Dehio <ndehio@cor-lab.uni-bielefeld.de>
+ */
+// @create_collection
+message Weights {
+
+    /**
+     * Weights
+     *
+     * Order is important and represents the described underlying
+     * object.
+     */
+    // @unit()
+    repeated float weights = 1 [packed=true];
+
+}
