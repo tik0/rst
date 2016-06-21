@@ -1,0 +1,22 @@
+package rst.kinematics;
+
+option java_outer_classname = "JointJerksType";
+
+/**
+ * A sequence of joint jerks of multiple joints.
+ *
+ * @author Niels Dehio <ndehio@cor-lab.uni-bielefeld.de>
+ */
+// @create_collection
+message JointJerks {
+
+    /**
+     * Joint jerks.
+     *
+     * Order is important and represents the described underlying
+     * physical object.
+     */
+    // @unit(rad/sec^3)
+    repeated float jerks = 1 [packed=true];
+
+}
