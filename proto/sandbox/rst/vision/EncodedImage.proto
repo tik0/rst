@@ -1,0 +1,77 @@
+package rst.vision;
+
+option java_outer_classname = "EncodedImageType";
+
+/**
+ * An image encoded in a certain format.
+ *
+ * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
+ */
+message EncodedImage {
+
+    /**
+     * Identifies an image/file encoding format.
+     */
+    enum Encoding {
+
+        /**
+         * Portable Pixmap Format.
+         *
+         * An open uncompressed image file format.
+         * @see https://en.wikipedia.org/wiki/Netpbm_format
+         */
+        PPM = 1;
+
+        /**
+         * Portable Network Graphics format (ISO/IEC 15948).
+         *
+         * An open lossless compressed image file format.
+         * @see https://en.wikipedia.org/wiki/Portable_Network_Graphics
+         */
+        PNG = 2;
+
+        /**
+         * Also known as JPEG (ISO/IEC 10918).
+         *
+         * An image file format with adjustable lossy compression
+         * created by the Joint Photographic Experts Group. The
+         * compression is based on the discrete cosine transform.
+         * @see https://en.wikipedia.org/wiki/JPEG
+         */
+        JPG = 3;
+
+        /**
+         * Also known as JPEG2000 (ISO/IEC 15444).
+         *
+         * An image file format with adjustable lossy compression
+         * created by the Joint Photographic Experts Group. This
+         * format superseeds JPG and can use discrete cosine transform
+         * or wavelet based methods for compression.
+         * @see https://en.wikipedia.org/wiki/JPEG_2000
+         */
+        JP2 = 4;
+
+        /**
+         * Tagged Image File Format.
+         *
+         * A computer file format for raster graphics developed by
+         * adobe.
+         * @see https://en.wikipedia.org/wiki/Tagged_Image_File_Format
+         */
+        TIFF = 5;
+
+    }
+
+    /**
+     * The encoding used to encode an image into binary data.
+     */
+    required Encoding encoding = 2;
+
+    /**
+     * Holds the binary image data.
+     *
+     * Can be decoded using the provided encoding information.
+     */
+    required bytes data = 1;
+
+}
