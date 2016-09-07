@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.robot;
 
 import "rst/geometry/Pose.proto";
@@ -25,4 +27,3 @@ message PickAndPlaceAction {
     required geometry.Pose placePose = 2;
 
 }
-

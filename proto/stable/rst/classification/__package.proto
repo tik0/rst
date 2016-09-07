@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * In machine learning and statistics, classification is the problem
  * of identifying to which of a set of categories (sub-populations) a

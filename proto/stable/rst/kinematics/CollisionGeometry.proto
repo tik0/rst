@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.kinematics;
 
 import "rst/geometry/Translation.proto";

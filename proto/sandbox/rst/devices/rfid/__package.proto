@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * A package with data types for handling RFID tags and readers.
  */

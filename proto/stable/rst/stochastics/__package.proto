@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * The use of the term stochastic to mean based on the theory of
  * probability.

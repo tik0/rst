@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * In computer science, image processing is any form of signal
  * processing for which the input is an image.

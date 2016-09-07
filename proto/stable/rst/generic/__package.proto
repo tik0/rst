@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * Message which are capable of handling dynamic data types.
  *

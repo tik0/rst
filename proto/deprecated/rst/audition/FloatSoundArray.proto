@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.audition;
 
 option java_outer_classname = "FloatSoundArrayType";

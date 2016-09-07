@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * Human–robot interaction is the study of interactions between humans
  * and robots. It is often referred as HRI by researchers.

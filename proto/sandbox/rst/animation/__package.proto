@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * Contains types to describe animations to be performed. Character
  * animation is a specific application.

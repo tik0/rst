@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.devices.generic;
 
 import "rst/devices/generic/MemoryState.proto";

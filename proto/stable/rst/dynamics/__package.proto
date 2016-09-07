@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 /**
  * In the field of physics, the study of the causes of motion and
  * changes in motion is dynamics. In other words the study of forces

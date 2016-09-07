@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.monitoring;
 
 option java_outer_classname = "ProcessAnomalyType";

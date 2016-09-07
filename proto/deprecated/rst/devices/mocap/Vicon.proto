@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 package rst.devices.mocap;
 
 import "rst/math/Vec3DDouble.proto";
