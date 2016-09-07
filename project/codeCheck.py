@@ -35,7 +35,7 @@ class Check(object):
 
 class CheckPackageMatchFolder(Check):
 
-    packageRegEx = re.compile("^package (.+);")
+    packageRegEx = re.compile(r"^(?:.*\n)?(?:.*\n)?package (.+);")
 
     def check(self):
         declaredPackages = self.packageRegEx.findall(self.fileContents)
@@ -178,12 +178,20 @@ class CheckBlockCommentIndents(Check):
                 if len(space) % 4 != 1:
                     self.errorHandler.addError(line=lineNumber, description="Block comment continuations must be aligned with leading asterisk.")
 
+class CheckSyntaxOptionFirst(Check):
+
+    def check(self):
+
+        if self.fileLines[0] != 'syntax = "proto2";':
+            self.errorHandler.addError(description='syntax = "proto2"; required on first line')
+
 class CheckPackageDeclarationFirst(Check):
 
     def check(self):
 
-        if self.fileLines[0][:len("package")] != "package":
-            self.errorHandler.addError(description="Package declaration required on first line")
+        if len(self.fileLines) < 2 \
+           or self.fileLines[2][:len("package")] != "package":
+            self.errorHandler.addError(description="Package declaration required on third line")
 
 class CheckNoSpaceBeforeFileSettings(Check):
 
@@ -332,6 +340,7 @@ def checkFile(file, root, errorHandler, additionalCheckClasses=[]):
     executeCheck(CheckNewlineAtEof)
     executeCheck(CheckTrailingSpaces)
     executeCheck(CheckBlockCommentIndents)
+    executeCheck(CheckSyntaxOptionFirst)
     executeCheck(CheckPackageDeclarationFirst)
     executeCheck(CheckNoSpaceBeforeFileSettings)
     executeCheck(CheckLeftCurlyBraces)
