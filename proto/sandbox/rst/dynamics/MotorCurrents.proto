@@ -15,7 +15,7 @@ message MotorCurrents {
     /**
      * motor currents of the robot's drives
      */
-    // @unit(ampere)
-    repeated float currents = 1 [packed=true];
+    repeated float currents = 1 [ packed = true,
+                                  rst.unit = "ampere" ];
 
 }

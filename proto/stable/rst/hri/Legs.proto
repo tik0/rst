@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.hri;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "LegsType";
 
 /**
@@ -21,26 +23,22 @@ message Legs {
     /**
      * The angle of the leg(s) as perceived by the robot's sensor.
      */
-    // @unit(radian)
-    required float angle = 1;
+    required float angle = 1 [ (rst.unit) = "radian" ];
 
     /**
      * The variance of the @ref .angle.
      */
-    // @unit(radian)
-    required float angle_variance = 2;
+    required float angle_variance = 2 [ (rst.unit) = "radian" ];
 
     /**
      * The distance between the robot's sensor and the leg(s).
      */
-    // @unit(meter)
-    required float distance = 3;
+    required float distance = 3 [ (rst.unit) = "meter" ];
 
     /**
      * The variance of the @ref .distance.
      */
-    // @unit(meter)
-    required float distance_variance = 4;
+    required float distance_variance = 4 [ (rst.unit) = "meter" ];
 
     /**
      * Indicates whether or not this object consists of two merged Legs.

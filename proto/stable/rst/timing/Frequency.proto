@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.timing;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "FrequencyType";
 
 /**
@@ -12,7 +14,6 @@ option java_outer_classname = "FrequencyType";
 // @create_collection
 message Frequency {
 
-    // @unit(hertz)
-    required double hz = 1;
+    required double hz = 1 [ (rst.unit) = "hertz" ];
 
 }

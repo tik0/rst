@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.kinematics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "AngularAccelerationsType";
 
 /**
@@ -16,19 +18,16 @@ message AngularAccelerations {
     /**
      * Acceleration around the x axis.
      */
-    // @unit(rad / second^2)
-    required float a = 1;
+    required float a = 1 [ (rst.unit) = "rad / second^2" ];
 
     /**
      * Acceleration around the y axis.
      */
-    // @unit(rad / second^2)
-    required float b = 2;
+    required float b = 2 [ (rst.unit) = "rad / second^2" ];
 
     /**
      * Acceleration around the z axis.
      */
-    // @unit(rad / second^2)
-    required float c = 3;
+    required float c = 3 [ (rst.unit) = "rad / second^2" ];
 
 }

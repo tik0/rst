@@ -31,8 +31,7 @@ message FaceWithGaze {
      * Positive values means that the person is looking upwards and
      * negative value means that the person is looking downwards.
      */
-    // @unit(radian)
-    optional double horizontal_gaze_estimation = 3;
+    optional double horizontal_gaze_estimation = 3 [ rst.unit = "radian" ];
 
     /**
      * Vertical gaze estimation angle. A relative rotation from the
@@ -41,7 +40,6 @@ message FaceWithGaze {
      * negative values means that the person is looking to the left
      * (from the persons point of view).
      */
-    // @unit(radian)
-    optional double vertical_gaze_estimation = 4;
+    optional double vertical_gaze_estimation = 4 [ rst.unit = "radian" ];
 
 }

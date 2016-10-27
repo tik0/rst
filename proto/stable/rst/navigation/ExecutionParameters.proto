@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.navigation;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "ExecutionParametersType";
 
 /**
@@ -20,9 +22,8 @@ message ExecutionParameters {
      * longer than the specified timeout in seconds. The robot must
      * stop if the timeout is reached.
      */
-    // @unit(second)
     // @constraint(value >= 0)
-    optional float timeout = 1;
+    optional float timeout = 1 [ (rst.unit) = "second" ];
 
     // --- parameters specific to certain implementations ---
 

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "TranslationType";
 
 /**
@@ -18,20 +20,17 @@ message Translation {
     /**
      * Cartesian displacement along the x axis
      */
-    // @unit(meter)
-    required double x = 1;
+    required double x = 1 [ (rst.unit) = "meter" ];
 
     /**
      * Cartesian displacement along the y axis
      */
-    // @unit(meter)
-    required double y = 2;
+    required double y = 2 [ (rst.unit) = "meter" ];
 
     /**
      * Cartesian displacement along the z axis
      */
-    // @unit(meter)
-    required double z = 3;
+    required double z = 3 [ (rst.unit) = "meter" ];
 
     /**
      * Identifier for the coordinate frame of the rotation.

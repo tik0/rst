@@ -73,9 +73,8 @@ message Prosody {
      * A value in seconds for the desired time to take to read the
      * contained words.
      */
-    // @unit(second)
     // @constraint(value >= 0)
-    optional float duration = 4;
+    optional float duration = 4 [ rst.unit = "second" ];
 
     /**
      * Relative speech rate given as a percentage of the

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.devices.generic;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "BatteryStateType";
 
 /**
@@ -19,21 +21,18 @@ message BatteryState {
      * Negative currents indicate discharging of the battery, positive ones
      * indicate an attached charger.
      */
-    // @unit(ampere)
-    optional float current = 1;
+    optional float current = 1 [ (rst.unit) = "ampere" ];
 
     /**
      * Indicates the current charging level of the battery, where 1 means full
      * and 0 indicates completely empty.
      */
-    // @unit(number)
     // @constraint(0<=value<=1)
-    required float charge_level = 2;
+    required float charge_level = 2 [ (rst.unit) = "number" ];
 
     /**
      * The temperature of the battery.
      */
-    // @unit(degree-celsius)
-    optional float battery_temperature = 3;
+    optional float battery_temperature = 3 [ (rst.unit) = "degree-celsius" ];
 
 }

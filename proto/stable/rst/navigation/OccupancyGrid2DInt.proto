@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.navigation;
 
+import "rst/Unit.proto";
+
 import "rst/geometry/Pose.proto";
 
 option java_outer_classname = "OccupancyGrid2DIntType";
@@ -21,8 +23,7 @@ message OccupancyGrid2DInt {
     /**
      * The map resolution as edge length of a cell.
      */
-    // @unit(meter)
-    required float resolution = 1;
+    required float resolution = 1 [ (rst.unit) = "meter" ];
 
     /**
      * Number of cells in x direction.

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.vision;
 
+import "rst/Unit.proto";
+
 import "rst/vision/Face.proto";
 
 option java_outer_classname = "FacesType";
@@ -24,13 +26,11 @@ message Faces {
     /**
      * Width of the source image.
      */
-    // @unit(pixel)
-    required uint32 width = 2;
+    required uint32 width = 2 [ (rst.unit) = "pixel" ];
 
     /**
      * Height of the source image.
      */
-    // @unit(pixel)
-    required uint32 height = 3;
+    required uint32 height = 3 [ (rst.unit) = "pixel" ];
 
 }

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.kinematics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "LinearAccelerationsType";
 
 /**
@@ -16,19 +18,16 @@ message LinearAccelerations {
     /**
      * Translatory acceleration along the x axis.
      */
-    // @unit(meter / second^2)
-    required float x = 1;
+    required float x = 1 [ (rst.unit) = "meter / second^2" ];
 
     /**
      * Translatory acceleration along the y axis.
      */
-    // @unit(meter / second^2)
-    required float y = 2;
+    required float y = 2 [ (rst.unit) = "meter / second^2" ];
 
     /**
      * Translatory acceleration along the z axis.
      */
-    // @unit(meter / second^2)
-    required float z = 3;
+    required float z = 3 [ (rst.unit) = "meter / second^2" ];
 
 }

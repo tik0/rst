@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 import "rst/math/Vec2DInt.proto";
 
 option java_outer_classname = "BoundingBoxType";
@@ -39,31 +41,26 @@ message BoundingBox {
     /**
      * Coordinates of the top left corner.
      */
-    // @unit(pixel)
-    required math.Vec2DInt top_left = 1;
+    required math.Vec2DInt top_left = 1 [ (rst.unit) = "pixel" ];
 
     /**
      * Width of the bounding box.
      */
-    // @unit(pixel)
-    required uint32 width = 2;
+    required uint32 width = 2 [ (rst.unit) = "pixel" ];
 
     /**
      * Height of the bounding box.
      */
-    // @unit(pixel)
-    required uint32 height = 3;
+    required uint32 height = 3 [ (rst.unit) = "pixel" ];
 
     /**
      * Width of the image the bounding box is based on.
      */
-    // @unit(pixel)
-    optional uint32 image_width = 4;
+    optional uint32 image_width = 4 [ (rst.unit) = "pixel" ];
 
     /**
      * Height of the image the bounding box is based on.
      */
-    // @unit(pixel)
-    optional uint32 image_height = 5;
+    optional uint32 image_height = 5 [ (rst.unit) = "pixel" ];
 
 }

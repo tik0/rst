@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 import "rst/math/Vec3DFloat.proto";
 
 option java_outer_classname = "PointCloud3DFloatType";
@@ -18,7 +20,6 @@ message PointCloud3DFloat {
      *
      * Order of elements does not matter.
      */
-    // @unit(meter?)
-    repeated math.Vec3DFloat points = 1;
+    repeated math.Vec3DFloat points = 1 [ (rst.unit) = "meter?" ];
 
 }

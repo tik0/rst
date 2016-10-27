@@ -18,7 +18,7 @@ message JointJerks {
      * Order is important and represents the described underlying
      * physical object.
      */
-    // @unit(rad/sec^3)
-    repeated float jerks = 1 [packed=true];
+    repeated float jerks = 1 [ packed = true,
+                               rst.unit = "rad/sec^3" ];
 
 }

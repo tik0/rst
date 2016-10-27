@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.kinematics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "JointAccelerationsType";
 
 /**
@@ -18,7 +20,7 @@ message JointAccelerations {
      * Order is important and represents the described underlying
      * physical object.
      */
-    // @unit(rad/sec^2)
-    repeated float accelerations = 1 [packed=true];
+    repeated float accelerations = 1 [ packed = true,
+                                       (rst.unit) = "rad/sec^2" ];
 
 }

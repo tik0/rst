@@ -25,25 +25,21 @@ message Tick {
     /**
      * Real time timestamp
      */
-    // @unit(microseconds)
-    required timing.Timestamp timestamp = 2;
+    required timing.Timestamp timestamp = 2 [ rst.unit = "microseconds" ];
 
     /**
      * Virtual (simulation) timestamp
      */
-    // @unit(microseconds)
-    optional timing.Timestamp virtual_timestamp = 3;
+    optional timing.Timestamp virtual_timestamp = 3 [ rst.unit = "microseconds" ];
 
     /**
      * (Real) Timestep since last tick
      */
-    // @unit(microseconds)
-    optional timing.Duration timestep = 4;
+    optional timing.Duration timestep = 4 [ rst.unit = "microseconds" ];
 
     /**
      * Virtual (simulation) timestep since last tick
      */
-    // @unit(microseconds)
-    optional timing.Duration virtual_timestep = 5;
+    optional timing.Duration virtual_timestep = 5 [ rst.unit = "microseconds" ];
 
 }

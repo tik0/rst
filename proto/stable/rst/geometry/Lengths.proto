@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "LengthsType";
 
 /**
@@ -13,7 +15,6 @@ option java_outer_classname = "LengthsType";
 // @create_collection
 message Lengths {
 
-    // @unit(meter)
-    repeated double lengths = 1;
+    repeated double lengths = 1 [ (rst.unit) = "meter" ];
 
 }

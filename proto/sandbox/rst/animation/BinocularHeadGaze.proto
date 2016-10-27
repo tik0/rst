@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.animation;
 
+import "rst/Unit.proto";
+
 import "rst/geometry/SphericalDirectionFloat.proto";
 
 option java_outer_classname = "BinocularHeadGazeType";
@@ -42,8 +44,8 @@ message BinocularHeadGaze {
      * angle is 0.5 times the given value where positive values
      * correspond to the eyes moving inwards.
      */
-    // @unit(radian)
-    required float eye_vergence = 2 [default = 0.0];
+    required float eye_vergence = 2 [ default = 0.0,
+                                      (rst.unit) = "radian" ];
 
     /**
      * Offset angles describing how much the head direction deviates

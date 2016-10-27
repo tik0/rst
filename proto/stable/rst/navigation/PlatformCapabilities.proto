@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.navigation;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "PlatformCapabilitiesType";
 
 /**
@@ -17,16 +19,14 @@ message PlatformCapabilities {
     /**
      * The maximum velocity of the platform.
      */
-    // @unit(meter / second)
     // @constraint(value >= 0)
-    optional float max_velocity = 1;
+    optional float max_velocity = 1 [ (rst.unit) = "meter / second" ];
 
     /**
      * The maximum acceleration of the platform.
      */
-    // @unit(meter / second^2)
     // @constraint(value >= 0)
-    optional float max_acceleration = 2;
+    optional float max_acceleration = 2 [ (rst.unit) = "meter / second^2" ];
 
     /**
      * Indicates whether the platform has a fine localization skill that can be

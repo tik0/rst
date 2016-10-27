@@ -15,7 +15,6 @@ message InstantaneousPhase {
     /**
      * Time-variant angle or its modulo value of a wave.
      */
-    // @unit(radian)
-    required float phase = 1;
+    required float phase = 1 [ rst.unit = "radian" ];
 
 }

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.dynamics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "JointImpedanceType";
 
 /**
@@ -19,15 +21,14 @@ message JointImpedance {
      *
      * (Same joints and same order as @ref .damping)
      */
-    // @unit(TODO)
-    repeated float stiffness = 1;
+    repeated float stiffness = 1 [ (rst.unit) = "TODO" ];
 
     /**
      * Damping values of multiple joints
      *
      * (Same joints and same order as @ref .stiffness)
      */
-    // @unit(newton-meter / rad)
-    repeated float damping = 2;
+    repeated float damping = 2 [ (rst.unit) = "newton-meter / rad" ];
+
 
 }

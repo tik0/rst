@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.dynamics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "PressuresType";
 
 /**
@@ -12,7 +14,6 @@ option java_outer_classname = "PressuresType";
 // @create_collection
 message Pressures {
 
-    // @unit(pascal)
-    repeated double pressures = 1;
+    repeated double pressures = 1 [ (rst.unit) = "pascal" ];
 
 }

@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.timing;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "TimestampType";
 
 /**
@@ -17,7 +19,6 @@ message Timestamp {
     /**
      * Number of microseconds since January 1st, 1970 in UTC time.
      */
-    // @unit(microsecond)
-    required uint64 time = 1;
+    required uint64 time = 1 [ (rst.unit) = "microsecond" ];
 
 }

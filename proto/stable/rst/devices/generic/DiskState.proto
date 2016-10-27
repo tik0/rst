@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.devices.generic;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "DiskStateType";
 
 /**
@@ -38,14 +40,12 @@ message DiskState {
         /**
          * Total available space on the partition.
          */
-        // @unit(byte)
-        optional uint64 space_total = 10;
+        optional uint64 space_total = 10 [ (rst.unit) = "byte" ];
 
         /**
          * Used space on the partition.
          */
-        // @unit(byte)
-        optional uint64 space_used = 11;
+        optional uint64 space_used = 11 [ (rst.unit) = "byte" ];
 
     }
 
@@ -86,28 +86,24 @@ message DiskState {
          * Number of bytes read from the device so far. Might wrap in case of
          * an overflow.
          */
-        // @unit(byte)
-        optional uint64 read_bytes = 12;
+        optional uint64 read_bytes = 12 [ (rst.unit) = "byte" ];
 
         /**
          * Number of bytes written to the device so far. Might wrap in case of
          * an overflow.
          */
-        // @unit(byte)
-        optional uint64 write_bytes = 13;
+        optional uint64 write_bytes = 13 [ (rst.unit) = "byte" ];
 
         /**
          * Time spent reading from the device. Might wrap in case of an
          * overflow.
          */
-        // @unit(msec)
-        optional uint64 read_time = 14;
+        optional uint64 read_time = 14 [ (rst.unit) = "msec" ];
 
         /**
          * Time spent writing to the device. Might wrap in case of an overflow.
          */
-        // @unit(msec)
-        optional uint64 write_time = 15;
+        optional uint64 write_time = 15 [ (rst.unit) = "msec" ];
 
     }
 

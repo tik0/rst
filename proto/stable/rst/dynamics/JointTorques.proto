@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.dynamics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "JointTorquesType";
 
 /**
@@ -16,7 +18,7 @@ message JointTorques {
      * List of torques with one value per joint. Order is important and
      * represents the joints of the described system.
      */
-    // @unit(newton-meter)
-    repeated float torques = 1 [packed=true];
+    repeated float torques = 1 [ packed = true,
+                                 (rst.unit) = "newton-meter" ];
 
 }

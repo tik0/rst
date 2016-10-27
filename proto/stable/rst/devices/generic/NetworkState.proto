@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.devices.generic;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "NetworkStateType";
 
 /**
@@ -29,15 +31,13 @@ message NetworkState {
          * Number of bytes received by the NIC so far. Might wrap in case of an
          * overflow.
          */
-        // @unit(byte)
-        optional uint64 bytes_received = 10;
+        optional uint64 bytes_received = 10 [ (rst.unit) = "byte" ];
 
         /**
          * Number of bytes sent by the NIC so far. Might wrap in case of an
          * overflow.
          */
-        // @unit(byte)
-        optional uint64 bytes_sent = 11;
+        optional uint64 bytes_sent = 11 [ (rst.unit) = "byte" ];
 
         /**
          * Number of packets received by the NIC. Might wrap in case of an

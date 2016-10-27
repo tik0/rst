@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.timing;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "DurationType";
 
 /**
@@ -12,7 +14,6 @@ option java_outer_classname = "DurationType";
 // @create_collection
 message Duration {
 
-    // @unit(microsecond)
-    required uint64 time = 1;
+    required uint64 time = 1 [ (rst.unit) = "microsecond" ];
 
 }

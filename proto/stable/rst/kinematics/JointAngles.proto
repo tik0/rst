@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.kinematics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "JointAnglesType";
 
 /**
@@ -15,7 +17,7 @@ message JointAngles {
     /**
      * Joint angles
      */
-    // @unit(radian)
-    repeated float angles = 1 [packed=true];
+    repeated float angles = 1 [ packed = true,
+                                (rst.unit) = "radian" ];
 
 }

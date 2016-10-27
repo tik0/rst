@@ -36,12 +36,12 @@ message FormattedSoundChunk {
     /**
      * TODO
      */
-    // @unit(hz?)
-    required uint32          rate = 2;
+    required uint32          rate = 2 [ rst.unit = "hz" ];
 
     /**
      * TODO
      */
-    // @unit(number)
-    optional uint32      channels = 3 [default = 2];
+    optional uint32      channels = 3 [ default = 2,
+                                        rst.unit = "number" ];
+
 };

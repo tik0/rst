@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.dynamics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "TorquesType";
 
 /**
@@ -19,19 +21,16 @@ message Torques {
     /**
      * Torque around the x axis.
      */
-    // @unit(newton-meter)
-    required float a = 1;
+    required float a = 1 [ (rst.unit) = "newton-meter" ];
 
     /**
      * Torque around the y axis.
      */
-    // @unit(newton-meter)
-    required float b = 2;
+    required float b = 2 [ (rst.unit) = "newton-meter" ];
 
     /**
      * Torque around the z axis.
      */
-    // @unit(newton-meter)
-    required float c = 3;
+    required float c = 3 [ (rst.unit) = "newton-meter" ];
 
 }

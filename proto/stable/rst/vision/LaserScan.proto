@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.vision;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "LaserScanType";
 
 /**
@@ -16,8 +18,7 @@ message LaserScan {
     /**
      * A set of values coming from the laserscanning device.
      */
-    // @unit(meter)
-    repeated float scan_values = 1;
+    repeated float scan_values = 1 [ (rst.unit) = "meter" ];
 
     /**
      * The angular range that is covered by the scan.
@@ -26,7 +27,6 @@ message LaserScan {
      * one-dimensional field of view. The values from @ref
      * .scan_values are evenly distributed over this angular range.
      */
-    // @unit(radian)
-    required float scan_angle = 2;
+    required float scan_angle = 2 [ (rst.unit) = "radian" ];
 
 }

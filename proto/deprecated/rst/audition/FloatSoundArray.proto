@@ -14,6 +14,5 @@ message FloatSoundArray {
     /**
      * TODO
      */
-    // @unit(TODO)
-    repeated float floatbuffer = 1;
+    repeated float floatbuffer = 1 [ rst.unit = "TODO" ];
 };

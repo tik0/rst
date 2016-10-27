@@ -47,8 +47,7 @@ message BayesNetworkEvidence {
     /**
      * Number of microseconds this evidence was observed for.
      */
-    // @unit(microsecond)
-    optional uint64 duration_microseconds = 4;
+    optional uint64 duration_microseconds = 4 [ rst.unit = "microsecond" ];
 
     /**
      * A set of observed variable states.

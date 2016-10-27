@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.dynamics;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "ForcesType";
 
 /**
@@ -15,19 +17,16 @@ message Forces {
     /**
      * Translatory force along the x axis.
      */
-    // @unit(newton)
-    required float x = 1;
+    required float x = 1 [ (rst.unit) = "newton" ];
 
     /**
      * Translatory force along the y axis.
      */
-    // @unit(newton)
-    required float y = 2;
+    required float y = 2 [ (rst.unit) = "newton" ];
 
     /**
      * Translatory force along the z axis.
      */
-    // @unit(newton)
-    required float z = 3;
+    required float z = 3 [ (rst.unit) = "newton" ];
 
 }

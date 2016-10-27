@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.vision;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "ImageType";
 
 /**
@@ -129,14 +131,12 @@ message Image {
     /**
      * The number of pixels in each row of the image.
      */
-    // @unit(pixel)
-    required uint32 width = 2;
+    required uint32 width = 2 [ (rst.unit) = "pixel" ];
 
     /**
      * The number of pixels in each column of the image.
      */
-    // @unit(pixel)
-    required uint32 height = 3;
+    required uint32 height = 3 [ (rst.unit) = "pixel" ];
 
     /**
      * The number of color channels in the image.
@@ -144,8 +144,8 @@ message Image {
      * The interpretation of these channels depends on @ref
      * .color_mode.
      */
-    // @unit(number)
-    optional uint32 channels = 4 [default = 3];
+    optional uint32 channels = 4 [ default = 3,
+                                   (rst.unit) = "number" ];
 
     /**
      * The number of bits used to encode

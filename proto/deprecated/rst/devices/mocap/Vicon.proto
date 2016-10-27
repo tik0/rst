@@ -23,14 +23,11 @@ message Vicon {
 
     message Timecode{
 
-        // @unit(hour)
-        required uint32 hours = 1;
+        required uint32 hours = 1 [ rst.unit = "hour" ];
 
-        // @unit(minute)
-        required uint32 minutes = 2;
+        required uint32 minutes = 2 [ rst.unit = "minute" ];
 
-        // @unit(second)
-        required uint32 seconds = 3;
+        required uint32 seconds = 3 [ rst.unit = "meter" ];
 
         optional uint32 frames = 4 [default = 0];
 
@@ -72,8 +69,7 @@ message Vicon {
 
     }
 
-    // @unit(number)
-    required uint64 frame = 1;
+    required uint64 frame = 1 [ rst.unit = "number" ];
 
     optional Timecode timecode = 2;
 

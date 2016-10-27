@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package rst;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+
+    /**
+     * This option can be used to specify the unit of a scalar field.
+     */
+    optional string unit = 51234;
+
+}

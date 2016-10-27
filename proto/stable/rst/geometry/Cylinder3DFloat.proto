@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 import "rst/geometry/Pose.proto";
 
 option java_outer_classname = "Cylinder3DFloatType";
@@ -53,13 +55,11 @@ message Cylinder3DFloat {
     /**
      * The radius of the cylinder.
      */
-    // @unit(meter)
-    required float radius = 2;
+    required float radius = 2 [ (rst.unit) = "meter" ];
 
     /**
      * The height of the cylinder.
      */
-    // @unit(meter)
-    required float height = 3;
+    required float height = 3 [ (rst.unit) = "meter" ];
 
 }

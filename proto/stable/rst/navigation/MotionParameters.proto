@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.navigation;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "MotionParametersType";
 
 /**
@@ -23,32 +25,28 @@ message MotionParameters {
     /**
      * The maximum velocity to be used when reaching the goal.
      */
-    // @unit(meter / second)
     // @constraint(value >= 0)
-    optional float max_velocity = 1;
+    optional float max_velocity = 1 [ (rst.unit) = "meter / second" ];
 
     /**
      * The maximum acceleration to be used when reaching the goal.
      */
-    // @unit(meter / second^2)
     // @constraint(value >= 0)
-    optional float max_acceleration = 2;
+    optional float max_acceleration = 2 [ (rst.unit) = "meter / second^2" ];
 
     /**
      * The desired translational accuracy to reach for a successful
      * motion command.
      */
-    // @unit(meter)
     // @constraint(value >= 0)
-    optional float translation_accuracy = 3;
+    optional float translation_accuracy = 3 [ (rst.unit) = "meter" ];
 
     /**
      * The desired orientation accuracy to reach for a successful
      * motion command.
      */
-    // @unit(rad)
     // @constraint(value >= 0)
-    optional float orientation_accuracy = 4;
+    optional float orientation_accuracy = 4 [ (rst.unit) = "rad" ];
 
     /**
      * If true, try to prefer moving in the forward orientation of

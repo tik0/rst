@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.devices.generic;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "CpuStateType";
 
 /**
@@ -21,8 +23,7 @@ message CpuState {
     /**
      * The length of one measurement tick for the individual CPU counters.
      */
-    // @unit(microsecond)
-    optional uint32 jiffy_length = 10;
+    optional uint32 jiffy_length = 10 [ (rst.unit) = "microsecond" ];
 
     /**
      * Measurements for a single CPU in the system.
@@ -46,68 +47,57 @@ message CpuState {
         /**
          * Identifier for the respective CPU or core in a multicore system.
          */
-        // @unit(number)
-        required int32 index = 1;
+        required int32 index = 1 [ (rst.unit) = "number" ];
 
         /**
          * Total time spent by this CPU so far in any mode including idle.
          */
-        // @unit(number)
-        required uint64 total = 100;
+        required uint64 total = 100 [ (rst.unit) = "number" ];
 
         /**
          * Time spent idle.
          */
-        // @unit(number)
-        required uint64 idle = 5;
+        required uint64 idle = 5 [ (rst.unit) = "number" ];
 
         /**
          * Time spent in user mode.
          */
-        // @unit(number)
-        optional uint64 user = 2;
+        optional uint64 user = 2 [ (rst.unit) = "number" ];
 
         /**
          * Time spent in user mode with nice (low) priority.
          */
-        // @unit(number)
-        optional uint64 user_low = 3;
+        optional uint64 user_low = 3 [ (rst.unit) = "number" ];
 
         /**
          * Time spent in system mode.
          */
-        // @unit(number)
-        optional uint64 system = 4;
+        optional uint64 system = 4 [ (rst.unit) = "number" ];
 
         /**
          * Time spent waiting for IO to complete.
          */
-        // @unit(number)
-        optional uint64 iowait = 6;
+        optional uint64 iowait = 6 [ (rst.unit) = "number" ];
 
         /**
          * Time spent servicing interrupts.
          */
-        // @unit(number)
-        optional uint64 irq = 7;
+        optional uint64 irq = 7 [ (rst.unit) = "number" ];
 
         /**
          * Time spent servicing softirqs.
          */
-        // @unit(number)
-        optional uint64 softirq = 8;
+        optional uint64 softirq = 8 [ (rst.unit) = "number" ];
 
         /**
          * Time spent in another operating system in case of a virtualized system.
          */
-        // @unit(number)
-        optional uint64 steal = 9;
+        optional uint64 steal = 9 [ (rst.unit) = "number" ];
 
         /**
          * Time spent running a virtualized guest.
          */
-        // @unit(number)
-        optional uint64 guest = 10;
+        optional uint64 guest = 10 [ (rst.unit) = "number" ];
 
     }
 
@@ -123,9 +113,8 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @unit(number)
     // @constraint(value>=0)
-    optional float load_1 = 40;
+    optional float load_1 = 40 [ (rst.unit) = "number" ];
 
     /**
      * Load average for 5 minutes as defined by the linux kernel, e.g. in
@@ -134,9 +123,8 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @unit(number)
     // @constraint(value>=0)
-    optional float load_5 = 41;
+    optional float load_5 = 41 [ (rst.unit) = "number" ];
 
     /**
      * Load average for 15 minute as defined by the linux kernel, e.g. in
@@ -145,8 +133,7 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @unit(number)
     // @constraint(value>=0)
-    optional float load_15 = 42;
+    optional float load_15 = 42 [ (rst.unit) = "number" ];
 
 }

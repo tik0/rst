@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 option java_outer_classname = "SphericalDirectionFloatType";
 
 /**
@@ -22,15 +24,13 @@ message SphericalDirectionFloat {
      * Cartesian coordinate system. A value of 0 zero points into the
      * positive direction of the X axis.
      */
-    // @unit(radian)
-    required float azimuth = 1;
+    required float azimuth = 1 [ (rst.unit) = "radian" ];
 
     /**
      * elevation angle with respect to the X-Y plane of the reference
      * Cartesian coordinate system. A value of 0 points towards the
      * "horizon".
      */
-    // @unit(radian)
-    required float elevation = 2;
+    required float elevation = 2 [ (rst.unit) = "radian" ];
 
 }

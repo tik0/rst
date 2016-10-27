@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Unit.proto";
+
 import "rst/geometry/AxisAlignedBoundingBox3DFloat.proto";
 import "rst/geometry/Pose.proto";
 
@@ -32,19 +34,16 @@ message BoundingBox3DFloat {
     /**
      * The width (along the X axis) of the box.
      */
-    // @unit(meter)
-    required float width = 2;
+    required float width = 2 [ (rst.unit) = "meter" ];
 
     /**
      * The depth (along the Y axis) of the box.
      */
-    // @unit(meter)
-    required float depth = 3;
+    required float depth = 3 [ (rst.unit) = "meter" ];
 
     /**
      * The height (along the Z axis) of the box.
      */
-    // @unit(meter)
-    required float height = 4;
+    required float height = 4 [ (rst.unit) = "meter" ];
 
 }

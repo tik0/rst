@@ -85,9 +85,8 @@ message PersonHypothesis {
      * @see http://en.wikipedia.org/wiki/Human_height
      *      "Definition of the person's body height"
      */
-    // @unit(meter)
     // @constraint(value >= 0)
-    optional float human_height = 45;
+    optional float human_height = 45 [ rst.unit = "meter" ];
 
     /**
      * Indication of the probability that a person focuses on a named
