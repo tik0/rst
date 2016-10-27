@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.dynamics;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "JointImpedanceType";
 
@@ -12,7 +13,6 @@ option java_outer_classname = "JointImpedanceType";
  * @author Christian Emmerich <cemmeric@techfak.uni-bielefeld.de>
  * @todo "what is SI unit of rotatory damping?"
  */
-// @constraint(len(.stiffness) == len(.damping))
 // @create_collection
 message JointImpedance {
 
@@ -30,5 +30,6 @@ message JointImpedance {
      */
     repeated float damping = 2 [ (rst.unit) = "newton-meter / rad" ];
 
+    option (rst.message_constraint) = "len(.stiffness) == len(.damping)";
 
 }

@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.vision;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "SimpleXYZImageType";
 
@@ -17,23 +18,21 @@ option java_outer_classname = "SimpleXYZImageType";
  *
  * @author Agnes Swadzba <aswadzba@techfak.uni-bielefeld.de>
  */
-// @constraint(.width * .height = len(.x))
-// @constraint(.width * .height = len(.y))
-// @constraint(.width * .height = len(.z))
 // @create_collection
 message SimpleXYZImage {
 
     /**
      * Width of the underlying 2D ordering structure.
      */
-    // @constraint(value > 0)
-    required uint32 width  = 1 [ (rst.unit) = "pixel" ];
+    required uint32 width  = 1 [ (rst.unit) = "pixel",
+                                 (rst.field_constraint) = "value > 0" ];
+
 
     /**
      * Height of the underlying 2D ordering structure.
      */
-    // @constraint(value > 0)
-    required uint32 height = 2 [ (rst.unit) = "pixel" ];
+    required uint32 height = 2 [ (rst.unit) = "pixel",
+                                 (rst.field_constraint) = "value > 0" ];
 
     /**
      * The values are ordered by linearizing the underlying 2D structure row-wise.
@@ -49,5 +48,9 @@ message SimpleXYZImage {
      * See @ref .x.
      */
     repeated float z = 5;
+
+    option (rst.message_constraint) = ".width * .height = len(.x)";
+    option (rst.message_constraint) = ".width * .height = len(.y)";
+    option (rst.message_constraint) = ".width * .height = len(.z)";
 
 };

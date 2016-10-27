@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.geometry;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 import "rst/geometry/FieldOfView.proto";
 
@@ -17,7 +18,6 @@ option java_outer_classname = "ViewFrustumType";
  *
  * @author Leon Ziegler <lziegler@techfak.uni-bielefeld.de>
  */
-// @constraint(.maximal_distance > .minimal_distance)
 // @create_collection
 message ViewFrustum {
 
@@ -29,13 +29,17 @@ message ViewFrustum {
     /**
      * The minimal perceivable distance.
      */
-    // @constraint(value > 0)
-    optional float minimal_distance = 2 [default = 0, (rst.unit) = "meter" ];
+    optional float minimal_distance = 2 [ default = 0,
+                                          (rst.unit) = "meter",
+                                          (rst.field_constraint) = "value > 0" ];
 
     /**
      * The maximal perceivable distance.
      */
-    // @constraint(value > 0)
-    optional float maximal_distance = 3 [ default = 99999, (rst.unit) = "meter" ];
+    optional float maximal_distance = 3 [ default = 99999,
+                                          (rst.unit) = "meter",
+                                          (rst.field_constraint) = "value > 0" ];
+
+    option (rst.message_constraint) = ".maximal_distance > .minimal_distance";
 
 }

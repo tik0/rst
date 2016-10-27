@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.vision;
 
+import "rst/Constraint.proto";
+
 import "rst/geometry/BoundingBox.proto";
 
 option java_outer_classname = "FaceType";
@@ -27,7 +29,6 @@ message Face {
      * result is actually a real face. Higher values indicate a higher
      * confidence.
      */
-    // @constraint(0 <= value <= 1)
-    optional double confidence = 2;
+    optional double confidence = 2 [ (rst.field_constraint) = "0 <= value <= 1" ];
 
 }

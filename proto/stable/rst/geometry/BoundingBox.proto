@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.geometry;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 import "rst/math/Vec2DInt.proto";
 
@@ -31,10 +32,6 @@ option java_outer_classname = "BoundingBoxType";
  *
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
-// @constraint(.top_left.x < .image_width)
-// @constraint(.top_left.x + .width <= .image_width)
-// @constraint(.top_left.y < .image_height)
-// @constraint(.top_left.y + .height <= .image_height)
 // @create_collection
 message BoundingBox {
 
@@ -62,5 +59,10 @@ message BoundingBox {
      * Height of the image the bounding box is based on.
      */
     optional uint32 image_height = 5 [ (rst.unit) = "pixel" ];
+
+    option (rst.message_constraint) = ".top_left.x < .image_width";
+    option (rst.message_constraint) = ".top_left.x + .width <= .image_width";
+    option (rst.message_constraint) = ".top_left.y < .image_height)";
+    option (rst.message_constraint) = ".top_left.y + .height <= .image_height)";
 
 }

@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.devices.generic;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "BatteryStateType";
 
@@ -27,8 +28,8 @@ message BatteryState {
      * Indicates the current charging level of the battery, where 1 means full
      * and 0 indicates completely empty.
      */
-    // @constraint(0<=value<=1)
-    required float charge_level = 2 [ (rst.unit) = "number" ];
+    required float charge_level = 2 [ (rst.unit) = "number",
+                                      (rst.field_constraint) = "0 <= value <= 1" ];
 
     /**
      * The temperature of the battery.

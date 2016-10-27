@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.devices.generic;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "MemoryStateType";
 
@@ -19,34 +20,34 @@ message MemoryState {
     /**
      * The total amount of system memory available.
      */
-    // @constraint(value>=0)
-    optional float total = 2 [ (rst.unit) = "byte" ];
+    optional float total = 2 [ (rst.unit) = "byte",
+                               (rst.field_constraint) = "value>=0"];
 
     /**
      * The currently used amount of memory. This includes everything including
      * cached memory etc. Stated the other way around, @ref .total - @ref .free
      * must result in the amount of memory currently being completely unused.
      */
-    // @constraint(0<=value<=.total)
-    optional float used = 3 [ (rst.unit) = "byte" ];
+    optional float used = 3 [ (rst.unit) = "byte",
+                              (rst.field_constraint) = "0<=value<=.total" ];
 
     /**
      * The amount of working memory that can be used by processes without
      * swapping, either because it is directly free or it can be reclaimed.
      */
-    // @constraint(0<=value<=.total)
-    optional uint64 usable = 4 [ (rst.unit) = "byte" ];
+    optional uint64 usable = 4 [ (rst.unit) = "byte",
+                                 (rst.field_constraint) = "0<=value<=.total" ];
 
     /**
      * The amount of swap space available.
      */
-    // @constraint(value>=0)
-    optional uint64 swap_total = 5 [ (rst.unit) = "byte" ];
+    optional uint64 swap_total = 5 [ (rst.unit) = "byte",
+                                     (rst.field_constraint) = "value>=0" ];
 
     /**
      * The amount of swap space currently being used.
      */
-    // @constraint(0<=value<=.swap_total)
-    optional uint64 swap_used = 6 [ (rst.unit) = "byte" ];
+    optional uint64 swap_used = 6 [ (rst.unit) = "byte",
+                                    (rst.field_constraint) = "0<=value<=.swap_total" ];
 
 }

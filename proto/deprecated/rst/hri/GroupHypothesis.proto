@@ -62,15 +62,13 @@ message GroupHypothesis {
      *
      * A level of interest the group is showing towards the robot.
      */
-    // @constraint(0.0 <= value <= 1.0)
-    optional float interest_level = 20;
+    optional float interest_level = 20 [ rst.constraint = "0.0 <= value <= 1.0" ];
 
     /**
      * How stable is the group, i.e. is there a low level of
      * fluctuation of group members.
      */
-    // @constraint(0.0 <= value <= 1.0)
-    optional float group_stability = 21;
+    optional float group_stability = 21 [ rst.constraint = "0.0 <= value <= 1.0" ];
 
     /**
      * Information about the group composition, structure etc.

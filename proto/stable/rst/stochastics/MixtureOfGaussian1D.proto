@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.stochastics;
 
+import "rst/Constraint.proto";
+
 import "rst/stochastics/Gaussian1D.proto";
 
 option java_outer_classname = "MixtureOfGaussian1DType";
@@ -12,7 +14,6 @@ option java_outer_classname = "MixtureOfGaussian1DType";
  * @author Xavier Alameda-Pineda <xavier.alameda-pineda@inrialpes.fr>
  * @author Johannes Wienke <jwienke@techfak.uni-bielefeld.de>
  */
-// @constraint(sum(.components.weight) = 1)
 message MixtureOfGaussian1D {
 
     /**
@@ -28,8 +29,7 @@ message MixtureOfGaussian1D {
         /**
          * Weight of this component.
          */
-        // @constraint(0 <= value <= 1)
-        required float weight = 2;
+        required float weight = 2 [ (rst.field_constraint) = "0 <= value <= 1" ];
 
         /**
          * Deprecated implementation detail - do not use.
@@ -44,5 +44,7 @@ message MixtureOfGaussian1D {
      * The order of elements is not significant.
      */
     repeated GaussianComponent1D components = 1;
+
+    option (rst.message_constraint) = "sum(.components.weight) = 1";
 
 }

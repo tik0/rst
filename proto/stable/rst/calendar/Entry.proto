@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.calendar;
 
+import "rst/Constraint.proto";
+
 import "rst/calendar/TimeZone.proto";
 import "rst/calendar/DateTime.proto";
 import "rst/calendar/RecurrenceId.proto";
@@ -62,8 +64,7 @@ message Entry {
      *
      * This field corresponds to the created property of an entry in RFC 2445.
      */
-    // @constraint(value.type == DateTime.Type.UTC)
-    optional DateTime created_utc = 2;
+    optional DateTime created_utc = 2 [ (rst.field_constraint) = "value.type == DateTime.Type.UTC" ];
 
     /**
      * A more complete description of the entry.
@@ -104,8 +105,7 @@ message Entry {
      *
      * This field corresponds to the last-mod property of an entry in RFC 2445.
      */
-    // @constraint(value.type == DateTime.Type.UTC)
-    optional DateTime last_modified = 7;
+    optional DateTime last_modified = 7 [ (rst.field_constraint) = "value.type == DateTime.Type.UTC" ];
 
     /**
      * Specifies where the entry will take place.
@@ -128,8 +128,8 @@ message Entry {
      *
      * This field corresponds to the priority property of an entry in RFC 2445.
      */
-    // @constraint(0 <= value <= 9)
-    optional uint32 priority = 10  [default = 0];
+    optional uint32 priority = 10  [ default = 0,
+                                     (rst.field_constraint) = "0 <= value <= 9" ];
 
     /**
      * Specifies when the entry was created.

@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.devices.generic;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "CpuStateType";
 
@@ -113,8 +114,8 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @constraint(value>=0)
-    optional float load_1 = 40 [ (rst.unit) = "number" ];
+    optional float load_1 = 40 [ (rst.unit) = "number",
+                                 (rst.field_constraint) = "value >= 0" ];
 
     /**
      * Load average for 5 minutes as defined by the linux kernel, e.g. in
@@ -123,8 +124,8 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @constraint(value>=0)
-    optional float load_5 = 41 [ (rst.unit) = "number" ];
+    optional float load_5 = 41 [ (rst.unit) = "number",
+                                 (rst.field_constraint) = "value >= 0" ];
 
     /**
      * Load average for 15 minute as defined by the linux kernel, e.g. in
@@ -133,7 +134,7 @@ message CpuState {
      * number of jobs in the run queue (state R) or waiting for disk I/O
      * (state D) averaged over 1, 5, and 15 minutes
      */
-    // @constraint(value>=0)
-    optional float load_15 = 42 [ (rst.unit) = "number" ];
+    optional float load_15 = 42 [ (rst.unit) = "number",
+                                  (rst.field_constraint) = "value >= 0" ];
 
 }

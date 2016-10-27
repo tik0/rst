@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.audition;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "InterauralTimeDifferenceType";
 
@@ -22,9 +23,9 @@ message InterauralTimeDifference {
     /**
      * TODO Weights of the ITD value
      */
-    // @constraint(sum to 1)
-    // @constraint(0 <= value <= 1)
-    repeated float weight = 2 [ (rst.unit) = "number" ];
+    repeated float weight = 2 [ (rst.unit) = "number",
+                                (rst.field_constraint) = "sum to 1",
+                                (rst.field_constraint) = "0 <= value <= 1" ];
 
     /**
      * TODO Frame shift between time windows

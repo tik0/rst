@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.timing;
 
+import "rst/Constraint.proto";
+
 import "rst/timing/Timestamp.proto";
 
 option java_outer_classname = "IntervalType";
@@ -11,7 +13,6 @@ option java_outer_classname = "IntervalType";
  *
  * @author Arne Nordmann <anordman@techfak.uni-bielefeld.de>
  */
-// @constraint(.begin.time <= .end.time)
 // @create_collection
 message Interval {
 
@@ -24,5 +25,7 @@ message Interval {
      * End of the interval.
      */
     optional Timestamp end = 2;
+
+    option (rst.message_constraint) = ".begin.time <= .end.time";
 
 }

@@ -54,7 +54,7 @@ message EmotionExpression {
      * The duration is given in milliseconds.
      *
      */
-    // @constraint(value > 0)
-    required uint32 duration = 2 [ rst.unit = "millisecond" ];
+    required uint32 duration = 2 [ rst.unit = "millisecond",
+                                   rst.constraint = "value > 0" ];
 
 }

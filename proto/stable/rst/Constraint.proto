@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package rst;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+
+    /**
+     * This option can be used to specify constraints that apply to
+     * the value of a message field.
+     */
+    repeated string field_constraint = 51235;
+
+}
+
+extend google.protobuf.MessageOptions {
+
+    /**
+     * This option can be used to specify constraints that apply to a
+     * message.
+     */
+    repeated string message_constraint = 51235;
+
+}

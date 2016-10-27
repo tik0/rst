@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.tracking;
 
+import "rst/Constraint.proto";
+
 import "rst/tracking/TrackingInfo.proto";
 import "rst/kinematics/Posture3DFloat.proto";
 
@@ -12,7 +14,6 @@ option java_outer_classname = "TrackedPosture3DFloatType";
  *
  * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
  */
-// @constraint(len(.posture) == len(.confidence))
 message TrackedPosture3DFloat {
 
     /**
@@ -30,7 +31,8 @@ message TrackedPosture3DFloat {
      * Confidence values for the individual positions stored in @ref
      * .posture.
      */
-    // @constraint(0 <= value <= 1)
-    repeated float                     confidence = 3;
+    repeated float                     confidence = 3 [ (rst.field_constraint) = "0 <= value <= 1" ];
+
+    option (rst.message_constraint) = "len(.posture) == len(.confidence)";
 
 }

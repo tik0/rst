@@ -78,8 +78,8 @@ message HeadAnimation {
      * The duration is given in milliseconds.
      *
      */
-    // @constraint(value > 0)
-    required uint32 duration_each = 3 [ rst.unit = "millisecond" ];
+    required uint32 duration_each = 3 [ rst.unit = "millisecond",
+                                        rst.constraint = "value > 0" ];
 
     /**
      * How to scale the animation with respect to the expressed emphasis.

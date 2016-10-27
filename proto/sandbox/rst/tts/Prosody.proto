@@ -43,8 +43,7 @@ message Prosody {
          *
          * 100% equals 1.0.
          */
-        // @constraint(value > 0)
-        optional float percentage = 3 [default = 1];
+        optional float percentage = 3 [ default = 1, rst.constraint = "value > 0" ];
 
     }
 
@@ -73,14 +72,13 @@ message Prosody {
      * A value in seconds for the desired time to take to read the
      * contained words.
      */
-    // @constraint(value >= 0)
-    optional float duration = 4 [ rst.unit = "second" ];
+    optional float duration = 4 [ rst.unit = "second",
+                                  rst.constraint = "value >= 0" ];
 
     /**
      * Relative speech rate given as a percentage of the
      * application-specific base rate.
      */
-    // @constraint(value >= 0)
-    optional float rate = 5 [default = 1];
+    optional float rate = 5 [ default = 1, rst.constraint = "value >= 0" ];
 
 }

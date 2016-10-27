@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.tracking;
 
+import "rst/Constraint.proto";
+
 import "rst/tracking/TrackingInfo.proto";
 import "rst/geometry/Translation.proto";
 
@@ -30,7 +32,6 @@ message TrackedPosition3DFloat {
      * Confidence in the correctness of the value stored in @ref
      * .position.
      */
-    // @constraint(0 <= value <= 1)
-    required float                confidence = 3;
+    required float                confidence = 3 [ (rst.field_constraint) = "0 <= value <= 1" ];
 
 }

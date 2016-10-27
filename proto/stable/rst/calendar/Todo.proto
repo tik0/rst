@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.calendar;
 
+import "rst/Constraint.proto";
+
 import "rst/calendar/DateTime.proto";
 import "rst/calendar/Entry.proto";
 
@@ -61,8 +63,7 @@ message Todo {
      *
      * This field corresponds to the completed property of VTODO in RFC 2445.
      */
-    // @constraint(value.type == DateTime.Type.UTC)
-    optional DateTime completed_utc = 2;
+    optional DateTime completed_utc = 2 [ (rst.field_constraint) = "value.type == DateTime.Type.UTC" ];
 
     /**
      * Specifies the completion status of the Todo in percent as a positive
@@ -70,8 +71,8 @@ message Todo {
      *
      * This field corresponds to the completed property of VTODO in RFC 2445.
      */
-    // @constraint(0 <= value <= 100)
-    optional uint32 percent = 3 [default = 0];
+    optional uint32 percent = 3 [ default = 0,
+                                  (rst.field_constraint) = "0 <= value <= 100" ];
 
     /**
      * The overall status of the Todo.

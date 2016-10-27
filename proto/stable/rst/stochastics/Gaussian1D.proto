@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.stochastics;
 
+import "rst/Constraint.proto";
+
 option java_outer_classname = "Gaussian1DType";
 
 /**
@@ -20,7 +22,6 @@ message Gaussian1D {
     /**
      * Variance of the distribution.
      */
-    // @constraint(value >= 0)
-    required float variance = 2;
+    required float variance = 2 [ (rst.field_constraint) = "value >= 0" ];
 
 }

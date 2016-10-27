@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.vision;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "ImageType";
 
@@ -125,8 +126,7 @@ message Image {
      * The number of bytes and their interpretation depend on the
      * values of the remaining fields.
      */
-    // @constraint(len(value) = (.width * .height * .channels * .depth) / 8)
-    required bytes data = 1;
+    required bytes data = 1 [ (rst.field_constraint) = "len(value) = (.width * .height * .channels * .depth) / 8" ];
 
     /**
      * The number of pixels in each row of the image.

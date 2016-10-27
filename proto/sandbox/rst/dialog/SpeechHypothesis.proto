@@ -42,8 +42,7 @@ message SpeechHypothesis {
     /**
      * Confidence for this speech hypothesis.
      */
-    // @constraint(0 <= value <= 1)
-    optional float confidence = 2;
+    optional float confidence = 2 [ rst.constraint = "0 <= value <= 1" ];
 
     /**
      * Start and end time for this speech hypothesis. Since some speech

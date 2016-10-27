@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.navigation;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "MotionParametersType";
 
@@ -25,28 +26,28 @@ message MotionParameters {
     /**
      * The maximum velocity to be used when reaching the goal.
      */
-    // @constraint(value >= 0)
-    optional float max_velocity = 1 [ (rst.unit) = "meter / second" ];
+    optional float max_velocity = 1 [ (rst.unit) = "meter / second",
+                                      (rst.field_constraint) = "value >= 0" ];
 
     /**
      * The maximum acceleration to be used when reaching the goal.
      */
-    // @constraint(value >= 0)
-    optional float max_acceleration = 2 [ (rst.unit) = "meter / second^2" ];
+    optional float max_acceleration = 2 [ (rst.unit) = "meter / second^2",
+                                          (rst.field_constraint) = "value >= 0" ];
 
     /**
      * The desired translational accuracy to reach for a successful
      * motion command.
      */
-    // @constraint(value >= 0)
-    optional float translation_accuracy = 3 [ (rst.unit) = "meter" ];
+    optional float translation_accuracy = 3 [ (rst.unit) = "meter",
+                                              (rst.field_constraint) = "value >= 0" ];
 
     /**
      * The desired orientation accuracy to reach for a successful
      * motion command.
      */
-    // @constraint(value >= 0)
-    optional float orientation_accuracy = 4 [ (rst.unit) = "rad" ];
+    optional float orientation_accuracy = 4 [ (rst.unit) = "rad",
+                                              (rst.field_constraint) = "value >= 0" ];
 
     /**
      * If true, try to prefer moving in the forward orientation of

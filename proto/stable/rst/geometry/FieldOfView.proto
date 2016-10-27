@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.geometry;
 
 import "rst/Unit.proto";
+import "rst/Constraint.proto";
 
 option java_outer_classname = "FieldOfViewType";
 
@@ -23,13 +24,13 @@ message FieldOfView {
     /**
      * An angle defining the horizontal bounds of the FOV.
      */
-    // @constraint(value > 0)
-    required float horizontal_aov = 1 [ (rst.unit) = "radian" ];
+    required float horizontal_aov = 1 [ (rst.unit) = "radian",
+                                        (rst.field_constraint) = "value > 0" ];
 
     /**
      * An angle defining the vertical bounds of the FOV.
      */
-    // @constraint(value > 0)
-    required float vertical_aov = 2 [ (rst.unit) = "radian" ];
+    required float vertical_aov = 2 [ (rst.unit) = "radian",
+                                      (rst.field_constraint) = "value > 0" ];
 
 }

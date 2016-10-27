@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package rst.geometry;
 
+import "rst/Constraint.proto";
+
 option java_outer_classname = "RotationType";
 
 /**
@@ -14,7 +16,6 @@ option java_outer_classname = "RotationType";
  * @author Arne Nordmann <anordman@cor-lab.uni-bielefeld.de>
  */
 // @create_collection
-// @constraint(.qw x .qw + .qx x .qx + .qy x .qy + .qz x .qz = 1)
 message Rotation {
 
     /**
@@ -44,5 +45,7 @@ message Rotation {
      * Identifier for the coordinate frame of the rotation.
      */
     optional string frame_id = 8;
+
+    option (rst.message_constraint) = ".qw x .qw + .qx x .qx + .qy x .qy + .qz x .qz = 1";
 
 }
