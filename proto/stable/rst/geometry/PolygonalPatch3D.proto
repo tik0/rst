@@ -2,10 +2,10 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "PolygonalPatch3DType";
-
 import "rst/geometry/Pose.proto";
 import "rst/math/Vec2DFloat.proto";
+
+option java_outer_classname = "PolygonalPatch3DType";
 
 /**
  * A two-dimensional patch in 3D space bounded by a polygon.

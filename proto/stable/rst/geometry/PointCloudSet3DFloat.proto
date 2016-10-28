@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "PointCloudSet3DFloatType";
-
 import "rst/geometry/PointCloud3DFloat.proto";
+
+option java_outer_classname = "PointCloudSet3DFloatType";
 
 /**
  * A set of 3D Point clouds.

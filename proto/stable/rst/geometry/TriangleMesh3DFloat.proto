@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "TriangleMesh3DFloatType";
-
 import "rst/geometry/PointCloud3DFloat.proto";
+
+option java_outer_classname = "TriangleMesh3DFloatType";
 
 /**
  * Defines a triangle mesh for describing 3D objects through vertices and their

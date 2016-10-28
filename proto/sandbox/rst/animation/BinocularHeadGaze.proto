@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.animation;
 
-option java_outer_classname = "BinocularHeadGazeType";
-
 import "rst/geometry/SphericalDirectionFloat.proto";
+
+option java_outer_classname = "BinocularHeadGazeType";
 
 /**
  * Description of a gaze configuration of a system having tow eyes

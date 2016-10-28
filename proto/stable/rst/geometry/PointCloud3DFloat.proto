@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "PointCloud3DFloatType";
-
 import "rst/math/Vec3DFloat.proto";
+
+option java_outer_classname = "PointCloud3DFloatType";
 
 /**
  * A collection of points in 3D space.

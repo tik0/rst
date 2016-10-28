@@ -2,10 +2,10 @@ syntax = "proto2";
 
 package rst.navigation;
 
-option java_outer_classname = "LabelCommandType";
-
 import "rst/navigation/ExecutionParameters.proto";
 import "rst/navigation/MotionParameters.proto";
+
+option java_outer_classname = "LabelCommandType";
 
 /**
  * A navigation command for a robot with a goal that is designated by

@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "PolygonalPatch3DSetType";
-
 import "rst/geometry/PolygonalPatch3D.proto";
+
+option java_outer_classname = "PolygonalPatch3DSetType";
 
 /**
  * A set of @ref .PolygonalPatch3D objects.

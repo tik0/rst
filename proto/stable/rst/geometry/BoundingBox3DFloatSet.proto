@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "BoundingBox3DFloatSetType";
-
 import "rst/geometry/BoundingBox3DFloat.proto";
+
+option java_outer_classname = "BoundingBox3DFloatSetType";
 
 /**
  * A set of @ref .BoundingBox3DFloat objects.

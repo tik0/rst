@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "AxisAlignedBoundingBox3DFloatType";
-
 import "rst/geometry/Translation.proto";
+
+option java_outer_classname = "AxisAlignedBoundingBox3DFloatType";
 
 /**
  * An axis-aligned bounding-box in 3D.

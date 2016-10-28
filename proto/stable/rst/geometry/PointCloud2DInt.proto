@@ -2,9 +2,9 @@ syntax = "proto2";
 
 package rst.geometry;
 
-option java_outer_classname = "PointCloud2DIntType";
-
 import "rst/math/Vec2DInt.proto";
+
+option java_outer_classname = "PointCloud2DIntType";
 
 /**
  * A collection of points in 2D space.
