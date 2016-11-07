@@ -9,7 +9,8 @@ import "rst/dialog/SpeechHypotheses.proto";
 
 /**
  * A description of a dialog act as a specialization of an incremental
- * unit consisting an xml speech hypothesis as payload.
+ * unit containing an XML representation of a speech hypothesis as
+ * payload.
  *
  * @author Birte Carlmeyer <bcarlmey@techfak.uni-bielefeld.de>
  */
@@ -17,7 +18,7 @@ import "rst/dialog/SpeechHypotheses.proto";
 message DialogAct {
 
     /**
-     * Possible kinds of dialog act types.
+     * Possible kinds of dialog acts.
      */
     enum Type {
 
