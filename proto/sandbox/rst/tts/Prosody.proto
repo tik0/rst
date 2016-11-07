@@ -28,7 +28,7 @@ message Prosody {
     message Value {
 
         /**
-         * Absolut value in the target unit.
+         * Absolute value in the target unit.
          */
         optional float absolute = 1;
 
