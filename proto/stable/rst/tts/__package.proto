@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+/**
+ * The tts (text to speech) package contains types describing the
+ * production of audio signals containing speech from textual
+ * representations of speech.
+ */
+package rst.tts;
