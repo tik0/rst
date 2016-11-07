@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+/**
+ * Types in this package describe verbal communication between agents
+ * in an interaction context.
+ */
+package rst.dialog;
