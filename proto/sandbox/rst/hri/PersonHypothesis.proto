@@ -5,6 +5,7 @@ package rst.hri;
 import "rst/vision/LocatedFace.proto";
 import "rst/tracking/TrackingInfo.proto";
 import "rst/hri/Body.proto";
+import "rst/hri/Head.proto";
 
 option java_outer_classname = "PersonHypothesisType";
 
@@ -33,6 +34,13 @@ message PersonHypothesis {
      * This includes the person's position in the world.
      */
     optional hri.Body body = 10;
+
+    /**
+     * Geometric properties of the person's head.
+     *
+     * This includes the person's head position in the world.
+     */
+    optional hri.Head head = 11;
 
     /**
      * Represents a person's age in years as a range.
