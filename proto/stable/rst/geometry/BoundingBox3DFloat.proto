@@ -2,7 +2,6 @@ syntax = "proto2";
 
 package rst.geometry;
 
-import "rst/geometry/AxisAlignedBoundingBox3DFloat.proto";
 import "rst/geometry/Pose.proto";
 
 option java_outer_classname = "BoundingBox3DFloatType";
