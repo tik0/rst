@@ -75,6 +75,14 @@ message PersonHypothesis {
     optional Gender gender = 42 [default = UNKNOWN];
 
     /**
+     * A unique, persistent id (a RFC 4122 UUID) for the person.
+     *
+     * For this encoding, the encoded UUID is 16 bytes long.
+     */
+    // @constraint(len(value) = 16)
+    optional bytes id = 43;
+
+    /**
      * The person's name. Empty string means unknown or undecided.
      */
     optional string name = 44;
