@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.graph;
 
 import "rst/generic/Value.proto";
+import "rst/generic/Dictionary.proto";
 
 option java_outer_classname = "EdgeType";
 
@@ -30,5 +31,11 @@ message Edge {
      * Specific to application creating the graph.
      */
     repeated .rst.generic.Value data = 3;
+
+    /**
+     * Data describing the relationship or properties of it in a
+     * key:value manner.
+     */
+    optional .rst.generic.Dictionary properties = 4;
 
 }
