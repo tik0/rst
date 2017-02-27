@@ -3,6 +3,7 @@ syntax = "proto2";
 package rst.graph;
 
 import "rst/generic/Value.proto";
+import "rst/generic/Dictionary.proto";
 
 option java_outer_classname = "NodeType";
 
@@ -19,5 +20,11 @@ message Node {
      * Specific to application creating the graph.
      */
     repeated .rst.generic.Value data = 1;
+
+    /**
+     * Data describing the node or properties of it in a key:value
+     * manner.
+     */
+    optional .rst.generic.Dictionary properties = 2;
 
 }
