@@ -14,8 +14,14 @@ import "rst/math/Vec2DFloat.proto";
  */
 message Point2DTimestampPair {
 
+    /**
+     * The point associated to the timestamp.
+     */
     required math.Vec2DFloat point = 1;
 
+    /**
+     * The timestamp associate to the point.
+     */
     required Timestamp timestamp = 2;
 
 }
