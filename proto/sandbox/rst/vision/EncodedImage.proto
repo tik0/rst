@@ -9,6 +9,7 @@ option java_outer_classname = "EncodedImageType";
  *
  * @author Viktor Richter <vrichter@techfak.uni-bielefeld.de>
  */
+// @create_collection
 message EncodedImage {
 
     /**
