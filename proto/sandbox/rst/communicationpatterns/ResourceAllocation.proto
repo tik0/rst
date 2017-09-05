@@ -13,9 +13,17 @@ import "rst/timing/Interval.proto";
  * The type is meant to be exchanged between a scheduling component
  * and its clients based on the current state in the allocations life
  * cycle. Target resources can be specified by one or more string
- * identifiers. In order to allow a scheduling component to arbitrate
- * between allocations, also an initiator (human or system), and a
- * conflict resolution strategy have to be specified.
+ * identifiers.
+ *
+ * In order to allow a scheduling component to arbitrate
+ * between allocations, also an initiator (human or system), a numerical
+ * importance value and a conflict resolution strategy have to be specified.
+ *
+ * Scheduling components are advised to evaluate information in the following
+ * order:
+ * i) Prefer a higher priority
+ * ii) Prefer a human initiator over a system initiator
+ * iii) Prefer a higher importance value
  *
  * @author Patrick Holthaus <patrick.holthaus@uni-bielefeld.de>
  */
@@ -188,6 +196,16 @@ message ResourceAllocation {
      * Priority of resource allocation.
      */
     required Priority priority = 30;
+
+    /**
+     * Importance of resource allocation.
+     *
+     * Higher importance values indicate that an allocation attempt should be
+     * preferred over attempts with lower importance if both have the same
+     * priority and initiator. If no importance value is specified, its value
+     * is assumed to be zero.
+     */
+    optional uint32 importance = 45;
 
     /**
      * Initiator of resource allocation.
