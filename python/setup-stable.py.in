@@ -42,9 +42,7 @@ class PrintOutputs(Command):
 
 setup(name='rststable',
       version='@RST_VERSION@',
-      description='''
-                  Robotics Systems Types
-                  ''',
+      description="Robotics Systems Types",
       author='Johannes Wienke',
       author_email='jwienke@techfak.uni-bielefeld.de',
       license="GPLv3",
@@ -54,6 +52,4 @@ setup(name='rststable',
 
       install_requires=['protobuf==@PROTOBUF_PROTOC_VERSION@'],
 
-      cmdclass={'print_outputs' : PrintOutputs},
-
-      )
+      cmdclass={'print_outputs': PrintOutputs})
