@@ -32,6 +32,314 @@ message SpeechHypothesis {
          */
         optional timing.Interval timestamps = 2;
 
+        /**
+         * Part-of-speech tags for German using a modified version of
+         * the Stuttgart-Tübingen-Tagset (STTS).
+         *
+         * Differences w.r.t. STTS are:
+         *
+         * * ``KOMM`` instead of ``$,``
+         * * ``END`` instead of ``$.``
+         * * ``IPNCT`` instead of ``$(``
+         *
+         * @see http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc
+         *      "Description of the STTS (in German)"
+         */
+        enum PartOfSpeechTag {
+
+            /**
+             * Attributives Adjektiv.
+             */
+            ADJA = 1;
+
+            /**
+             * Adverbiales oder prädikatives Adjektiv.
+             */
+            ADJD = 2;
+
+            /**
+             * Adverb.
+             */
+            ADV = 3;
+
+            /**
+             * Präposition; Zirkumposition links.
+             */
+            APPR = 4;
+
+            /**
+             * Präposition mit Artikel.
+             */
+            APPRART = 5;
+
+            /**
+             * Postposition.
+             */
+            APPO = 6;
+
+            /**
+             * Zirkumposition rechts.
+             */
+            APZR = 7;
+
+            /**
+             * Bestimmter oder unbestimmter Artikel.
+             */
+            ART = 8;
+
+            /**
+             * Kardinalzahl.
+             */
+            CARD = 9;
+
+            /**
+             * Fremdsprachliches Material.
+             */
+            FM = 10;
+
+            /**
+             * Interjektion.
+             */
+            ITJ = 11;
+
+            /**
+             * Ordinalzahl.
+             */
+            ORD = 12;
+
+            /**
+             * Unterordnende Konjunktion.
+             */
+            KOUI = 13;
+
+            /**
+             * Unterordnende Konjunktion.
+             */
+            KOUS = 14;
+
+            /**
+             * Nebenordnende Konjunktion.
+             */
+            KON = 15;
+
+            /**
+             * Vergleichskonjunktion.
+             */
+            KOKOM = 16;
+
+            /**
+             * Normales Nomen.
+             */
+            NN = 17;
+
+            /**
+             * Eigennamen.
+             */
+            NE = 18;
+
+            /**
+             * Substituierendes Demonstrativpronomen.
+             */
+            PDS = 19;
+
+            /**
+             * Attribuierendes Demonstrativpronomen.
+             */
+            PDAT = 20;
+
+            /**
+             * Substituierendes Indefinitpronomen.
+             */
+            PIS = 21;
+
+            /**
+             * Attribuierendes Indefinitpronomen ohne Determiner.
+             */
+            PIAT = 22;
+
+            /**
+             * Attribuierendes Indefinitpronomen mit Determiner.
+             */
+            PIDAT = 23;
+
+            /**
+             * Irreflexives Personalpronomen.
+             */
+            PPER = 24;
+
+            /**
+             * Substituierendes Possessivpronomen.
+             */
+            PPOSS = 25;
+
+            /**
+             * Attribuierendes Possessivpronomen.
+             */
+            PPOSAT = 26;
+
+            /**
+             * Substituierendes Relativpronomen.
+             */
+            PRELS = 27;
+
+            /**
+             * Attribuierendes Relativpronomen.
+             */
+            PRELAT = 28;
+
+            /**
+             * Reflexives Personalpronomen.
+             */
+            PRF = 29;
+
+            /**
+             * Substituierendes Interrogativpronomen.
+             */
+            PWS = 30;
+
+            /**
+             * Attribuierendes Interrogativpronomen.
+             */
+            PWAT = 31;
+
+            /**
+             * Adverbiales Interrogativ- oder Relativpronomen.
+             */
+            PWAV = 32;
+
+            /**
+             * Pronominaladverb.
+             */
+            PAV = 33;
+
+            /**
+             * "zu" vor Infinitiv.
+             */
+            PTKZU = 34;
+
+            /**
+             * Negationspartikel.
+             */
+            PTKNEG = 35;
+
+            /**
+             * Abgetrennter Verbzusatz.
+             */
+            PTKVZ = 36;
+
+            /**
+             * Antwortpartikel.
+             */
+            PTKANT = 37;
+
+            /**
+             * Partikel bei Adjektiv oder Adverb.
+             */
+            PTKA = 38;
+
+            /**
+             * SGML Markup.
+             */
+            SGML = 39;
+
+            /**
+             * Buchstabierfolge.
+             */
+            SPELL = 40;
+
+            /**
+             * Kompositions-Erstglied.
+             */
+            TRUNC = 41;
+
+            /**
+             * Finites Verb, voll.
+             */
+            VVFIN = 42;
+
+            /**
+             * Imperativ, voll.
+             */
+            VVIMP = 43;
+
+            /**
+             * Infinitiv, voll.
+             */
+            VVINF = 44;
+
+            /**
+             * Infinitiv mit "zu", voll.
+             */
+            VVIZU = 45;
+
+            /**
+             * Partizip Perfekt, voll.
+             */
+            VVPP = 46;
+
+            /**
+             * Finites Verb, aux.
+             */
+            VAFIN = 47;
+
+            /**
+             * Imperativ, aux.
+             */
+            VAIMP = 48;
+
+            /**
+             * Infinitiv, aux.
+             */
+            VAINF = 49;
+
+            /**
+             * Partizip Perfekt, aux.
+             */
+            VAPP = 50;
+
+            /**
+             * Finites Verb, modal.
+             */
+            VMFIN = 51;
+
+            /**
+             * Infinitiv, modal.
+             */
+            VMINF = 52;
+
+            /**
+             * Partizip Perfekt, modal.
+             */
+            VMPP = 53;
+
+            /**
+             * Nichtwort, Sonderzeichen enthaltend.
+             */
+            XY = 54;
+
+            /**
+             * Komma
+             */
+            KOMM = 55;
+
+            /**
+             * Satzbeendende Interpunktion.
+             */
+            END = 56;
+
+            /**
+             * Sonstige Satzzeichen; satzintern.
+             */
+            IPNCT = 57;
+
+        }
+
+        /**
+         * Stuttgart-Tübingen-Tagset (STTS) Part-of-speech tag for
+         * this word (assumes German).
+         */
+        optional PartOfSpeechTag part_of_speech_tag = 3;
+
     }
 
     /**
