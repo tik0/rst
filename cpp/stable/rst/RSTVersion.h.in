@@ -28,6 +28,11 @@
 
 #include <string>
 
+// Workaround for GNU C library which may define these macros even if
+// we do not directly include the relevant header file.
+#undef major
+#undef minor
+
 #define RST_VERSION_MAJOR @RST_VERSION_MAJOR@
 #define RST_VERSION_MINOR @RST_VERSION_MINOR@
 #define RST_VERSION_PATCH @RST_VERSION_PATCH@
