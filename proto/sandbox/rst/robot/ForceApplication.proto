@@ -1,0 +1,36 @@
+syntax = "proto2";
+
+package rst.robot;
+
+import "rst/dynamics/Forces.proto";
+import "rst/geometry/Translation.proto";
+
+option java_outer_classname = "ForceApplicationType";
+
+/**
+ * A force vector applied to a kinematic link at a particular position.
+ *
+ * @author Jan Moringen <jmoringe@techfak.uni-bielefeld.de>
+ */
+message ForceApplication {
+
+    /**
+     * The name of the link in the kinematic chain to which the force
+     * should be applied.
+     */
+    required string link = 1;
+
+    /**
+     * The force vector that should be applied to the link.
+     *
+     * Expressed in world coordinates.
+     */
+    required .rst.dynamics.Forces force = 2;
+
+    /**
+     * The point in world coordinates at which @ref .force should be
+     * applied.
+     */
+    required .rst.geometry.Translation application_point = 3;
+
+}
