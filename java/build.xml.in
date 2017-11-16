@@ -20,19 +20,32 @@
 	<target name="compile" description="compile the source ">
 		<delete dir="classes-stable" />
 		<mkdir dir="classes-stable" />
-		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/stable" destdir="classes-stable" debug="on" deprecation="on" target="1.6" source="1.6">
+		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/stable"
+		       destdir="classes-stable"
+		       debug="on" deprecation="on"
+		       target="1.6" source="1.6"
+		       encoding="utf8">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath" />
 		</javac>
 		<delete dir="classes-sandbox" />
 		<mkdir dir="classes-sandbox" />
-		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox" destdir="classes-sandbox" debug="on" deprecation="on" target="1.6" source="1.6">
+		<javac
+		    srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/sandbox"
+		    destdir="classes-sandbox"
+		    debug="on" deprecation="on"
+		    target="1.6" source="1.6"
+		    encoding="utf8">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath-sandbox" />
 		</javac>
 		<delete dir="classes-deprecated" />
 		<mkdir dir="classes-deprecated" />
-		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/deprecated" destdir="classes-deprecated" debug="on" deprecation="on" target="1.6" source="1.6">
+		<javac srcdir="@SAFE_CMAKE_CURRENT_BINARY_DIR@/deprecated"
+		       destdir="classes-deprecated"
+		       debug="on" deprecation="on"
+		       target="1.6" source="1.6"
+		       encoding="utf8">
 			<compilerarg value="-Xlint" />
 			<classpath refid="classpath-deprecated" />
 		</javac>
